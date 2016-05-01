@@ -1,0 +1,35 @@
+{
+	"author": {
+		"email": "meaningfuljs@gmail.com",
+		"name": "Yuriy Guskov",
+		"url": "http://www.github.com/meaningfuljs"
+	},
+	"dependencies": {
+		"bootstrap": "*",
+		"jsdom": "*",
+		"jquery": "*",
+		"underscore": "*"
+	},
+	"description": "meaningful.js",
+	"devDependencies": {},
+	"directories": {},
+	"homepage": "http://www.github.com/meaningfuljs",
+	"licenses": [{
+		"type": "MIT",
+		"url": "http://www.github.com/meaningfuljs/LICENSE"
+	}],
+	"main": ".",
+	"maintainers": [{
+		"name": "yuriyg",
+		"email": "meaningfuljs@gmail.com"
+	}],
+	"name": "meaningfuljs",
+	"optionalDependencies": {},
+	"readme": "README",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/meaningfuljs/meaningfuljs.git"
+	},
+	"scripts": {},
+	"version": "0.0.1"
+}

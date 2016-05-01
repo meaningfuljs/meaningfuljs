@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=1020">
+    <title>Planets of the Solar System</title>
+    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+	<!--link rel="stylesheet" href="meaningful.css"-->
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+	<script type="text/javascript" src="meaningful.js"></script>
+	
+	<script>
+	$(document).ready(function() {
+		meaningful.uiInit();
+	});
+	</script>
+  </head>
+
+  <body>
+
+  	<div class="container-fluid">
+	  	<h3>Planets of the Solar System</h3>
+  	</div>
+
+	<div class="container-fluid">
+		<table class="table table-striped table-bordered" meaning="planet">
+			<caption>Planet list</caption>
+			<thead meaning="planet [has property]">
+				<tr>
+					<th meaning="planet [has id]">Name</th>
+					<th>Distance from the Sun (millions km)</th>
+					<th>Diameter</th>
+					<th>Time to spin on axis</th>
+					<th>Time to orbit the Sun</th>
+					<th>Gravity (Earth = 1)</th>
+					<th>Average temperature</th>
+					<th>Contents of atmosphere</th>
+					<th>Year of discovery</th>
+					<th>Number of satellites</th>
+				</tr>
+			</thead>
+			<tbody meaning="[is instance of] planet">
+				<tr>
+					<td>Mercury</td>
+					<td>58</div></td>
+					<td>4,878 km</td>
+					<td>59 days</td>
+					<td>88 days</td>
+					<td>0.38</td>
+					<td>-183 &deg;C to 427 &deg;C<div></td>
+					<td>Sodium, helium</td>
+					<td>n/a</td>
+					<td>None</td>
+				</tr>
+				<tr>
+					<td>Venus</td>
+					<td>108</td>
+					<td>12,104 km</td>
+					<td>243 days</td>
+					<td>224 days</td>
+					<td>0.9</td>
+					<td>480 &deg;C</td>
+					<td>Carbon Dioxide (96%), Nitrogen (3.5%)</td>
+					<td>n/a</td>
+					<td>None</td>
+				</tr>
+				<tr>
+					<td>Earth</td>
+					<td>150</td>
+					<td>12,756 km</td>
+					<td>23 hours 56 mins</td>
+					<td>365.25 days</td>
+					<td>1</td>
+					<td>14 &deg;C</td>
+					<td>Nitrogen (77%), Oxygen (21%)</td>
+					<td>n/a</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Mars</td>
+					<td>228</td>
+					<td>6,794 km</td>
+					<td>24 hours 37 mins</td>
+					<td>687 days</td>
+					<td>0.38</td>
+					<td>-63 &deg;C</td>
+					<td>Carbon Dioxide(95.3%), Argon</td>
+					<td>n/a</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>Jupiter</td>
+					<td>778</td>
+					<td>142,984 km</td>
+					<td>9 hours 55 mins</td>
+					<td>11.86 years</td>
+					<td>2.64</td>
+					<td>-130 &deg;C</td>
+					<td>Hydrogen, Helium</td>
+					<td>n/a</td>
+					<td>66</td>
+				</tr>
+				<tr>
+					<td>Saturn</td>
+					<td>1427</td>
+					<td>120,536 km</td>
+					<td>10 hours 39 mins</td>
+					<td>29 years</td>
+					<td>1.16</td>
+					<td>-130 &deg;C</td>
+					<td>Hydrogen, Helium</td>
+					<td>n/a</td>
+					<td>62</td>
+				</tr>
+				<tr>
+					<td>Uranus</td>
+					<td>2871</td>
+					<td>51,118 km</td>
+					<td>17 hours 14 mins</td>
+					<td>84 years</td>
+					<td>1.11</td>
+					<td>-200 &deg;C</td>
+					<td>Hydrogen, Helium, Methane</td>
+					<td>1781</td>
+					<td>27</td>
+				</tr>
+				<tr>
+					<td>Neptune</td>
+					<td>4497</td>
+					<td>49,532 km</td>
+					<td>16 hours 7 mins</td>
+					<td>164.8 years</td>
+					<td>1.21</td>
+					<td>-200 &deg;C</td>
+					<td>Hydrogen, Helium, Methane</td>
+					<td>1846</td>
+					<td>13</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="container-fluid">
+	<dl>
+
+		<dt>Planet</dt>
+		<dd>
+<span meaning="planet [is type of #1]">Planet</span> is a <span meaning="[#1]">celestial body</span>.
+		</dd>
+	
+		<dt>Mercury</dt>
+		<dd>
+Mercury (0.4 AU from the Sun) is the closest planet to the Sun and the smallest planet in the Solar System (0.055 Earth masses). Mercury has no natural satellites; besides impact craters, its only known geological features are lobed ridges or rupes that were probably produced by a period of contraction early in its history.[67] Mercury's very tenuous atmosphere consists of atoms blasted off its surface by the solar wind.[68] Its relatively large iron core and thin mantle have not yet been adequately explained. Hypotheses include that its outer layers were stripped off by a giant impact; or, that it was prevented from fully accreting by the young Sun's energy.[69][70]
+		</dd>
+	
+		<dt>Venus</dt>
+		<dd>
+Venus (0.7 AU from the Sun) is close in size to Earth (0.815 Earth masses) and, like Earth, has a thick silicate mantle around an iron core, a substantial atmosphere, and evidence of internal geological activity. It is much drier than Earth, and its atmosphere is ninety times as dense. Venus has no natural satellites. It is the hottest planet, with surface temperatures over 400 &deg;C (752&deg;F), most likely due to the amount of greenhouse gases in the atmosphere.[71] No definitive evidence of current geological activity has been detected on Venus, but it has no magnetic field that would prevent depletion of its substantial atmosphere, which suggests that its atmosphere is being replenished by volcanic eruptions.[72]
+		</dd>
+
+		<dt>Earth</dt>
+		<dd>
+Earth (1 AU from the Sun) is the largest and densest of the inner planets, the only one known to have current geological activity, and the only place where life is known to exist.[73] Its liquid hydrosphere is unique among the terrestrial planets, and it is the only planet where plate tectonics has been observed. Earth's atmosphere is radically different from those of the other planets, having been altered by the presence of life to contain 21% free oxygen.[74] It has one natural satellite, the Moon, the only large satellite of a terrestrial planet in the Solar System.
+		</dd>
+
+		<dt>Mars</dt>
+		<dd>
+Mars (1.5 AU from the Sun) is smaller than Earth and Venus (0.107 Earth masses). It possesses an atmosphere of mostly carbon dioxide with a surface pressure of 6.1 millibars (roughly 0.6% of that of Earth).[75] Its surface, peppered with vast volcanoes, such as Olympus Mons, and rift valleys, such as Valles Marineris, shows geological activity that may have persisted until as recently as 2 million years ago.[76] Its red colour comes from iron oxide (rust) in its soil.[77] Mars has two tiny natural satellites (Deimos and Phobos) thought to be captured asteroids.[78]
+		</dd>
+	
+		<dt>Jupiter</dt>
+		<dd>
+Jupiter (5.2 AU), at 318 Earth masses, is 2.5 times the mass of all the other planets put together. It is composed largely of hydrogen and helium. Jupiter's strong internal heat creates semi-permanent features in its atmosphere, such as cloud bands and the Great Red Spot. Jupiter has 67 known satellites. The four largest, Ganymede, Callisto, Io, and Europa, show similarities to the terrestrial planets, such as volcanism and internal heating.[88] Ganymede, the largest satellite in the Solar System, is larger than Mercury.
+		</dd>
+
+		<dt>Saturn</dt>
+		<dd>
+Saturn (9.5 AU), distinguished by its extensive ring system, has several similarities to Jupiter, such as its atmospheric composition and magnetosphere. Although Saturn has 60% of Jupiter's volume, it is less than a third as massive, at 95 Earth masses, making it the least dense planet in the Solar System.[89] The rings of Saturn are made up of small ice and rock particles. Saturn has 62 confirmed satellites; two of which, Titan and Enceladus, show signs of geological activity, though they are largely made of ice.[90] Titan, the second-largest moon in the Solar System, is larger than Mercury and the only satellite in the Solar System with a substantial atmosphere.
+		</dd>
+
+		<dt>Uranus</dt>
+		<dd>
+Uranus (19.2 AU), at 14 Earth masses, is the lightest of the outer planets. Uniquely among the planets, it orbits the Sun on its side; its axial tilt is over ninety degrees to the ecliptic. It has a much colder core than the other giant planets and radiates very little heat into space.[91] Uranus has 27 known satellites, the largest ones being Titania, Oberon, Umbriel, Ariel, and Miranda.
+		</dd>
+
+		<dt>Neptune</dt>
+		<dd>
+Neptune (30.1 AU), though slightly smaller than Uranus, is more massive (equivalent to 17 Earths) and hence more dense. It radiates more internal heat, but not as much as Jupiter or Saturn.[92] Neptune has 14 known satellites. The largest, Triton, is geologically active, with geysers of liquid nitrogen.[93] Triton is the only large satellite with a retrograde orbit. Neptune is accompanied in its orbit by several minor planets, termed Neptune trojans, that are in 1:1 resonance with it.
+		</dd>
+		
+	</dl>
+	</div>
+
+  </body>
+  
+</html>

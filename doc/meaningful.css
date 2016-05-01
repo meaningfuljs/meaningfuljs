@@ -1,0 +1,54 @@
+.markdown-body {
+	font-size: 14px;
+}
+
+.meaningful {
+	padding: 5px;
+	font-size: 14px;
+	background-color: #b3e7ff;
+	border-style: dashed;
+	border-width: 2px;
+	font-weight: 500;
+}
+
+.meaningful-question {
+	padding: 5px;
+	color: white;
+	font-size: 14px;
+	background-color: #3399ff;
+	border-style: dashed;
+	border-width: 2px;
+	font-weight: 500;
+}
+
+.meaningful .indent {
+	padding-left: 50px;
+}
+
+.meaningful .indent2 {
+	padding-left: 100px;
+}
+
+.meaningful .indent3 {
+	padding-left: 150px;
+}
+
+.meaningful .ref {
+	margin: 0 4px 0 4px;
+	color: #66b3ff;
+	font-size: 12px;
+}
+
+.meaningful .rel {
+	margin: 0 2px 0 2px;
+	color: #0033cc;
+	font-size: 11px;
+	letter-spacing: 2px;
+}
+
+.meaningful-question .rel {
+	margin: 0 2px 0 2px;
+	color: #99ddff;
+	font-size: 11px;
+	letter-spacing: 2px;
+}
