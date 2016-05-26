@@ -7,7 +7,7 @@ Natural language
 * It is the most used form of relations, which tries to have some correspondence with object-actions but also has anthropocentric and languagecentric constructs:
    * Nouns and pronouns roughly correspond to space itself and objects inside it. Nouns can also refer to relations and actions (like `movement`).
    * Adjectives roughly correspond to properties of objects.
-   * Verbs correspond to changes of spatial, temporal, and other characteristics of objects, and to abstract relations. For example, `send` applying to `mail` is only "verb" grammatically but actually involves relations between "sender", "recipient", "envelope", "mail service", "transportation", and even "traffic jam on the way of postal truck".
+   * Verbs correspond to changes of spatial, temporal, and other characteristics of objects, and to abstract relations (but the same may be expressed with nouns, gerunds, etc). For example, `send` applying to `mail` is only "verb" grammatically but actually involves relations between "sender", "recipient", "envelope", "mail service", "transportation", and even "traffic jam on the way of postal truck".
    * Modal verbs correspond to someone's relation to an action (probability, ability, obligation, advice, permission, habits, prohibition, necessity, offer, request, possibility, suggestion, etc).
    * Adverbs and adverbial clauses/phrases correspond to properties of object-actions and relations (place, time, frequency, manner, purpose, degree, certainty, viewpoint, condition, reason, concession, comparison, result).
 * There are no strict boundaries between spatial, temporal, and abstract relations in natural language because:

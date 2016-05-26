@@ -9,7 +9,7 @@ It introduces [simple markup](doc/syntax.md) for plain text, which allows answer
 Why this approach is different?
 -------------------------------
 
-1. It based on my [theory of meaning](doc/meaning.md), which is slightly different from existing ones and helps to represent meaning more adequately.
+1. It based on my [theory of meaning](doc/meaning.md) ([why?](doc/why.md)), which is slightly different from existing ones and helps to represent meaning more adequately.
 2. Markup may be applied to plain text. Therefore, potentially, its usage scope is wider than HTML or even Semantic Web one as you can apply it to any data.
 3. Simple enough approach which can be used as soon as you is familiar with [syntax](doc/syntax.md) and [theory](doc/meaning.md), which are intuitive and quite straighforward.
 4. It uses natural language but is not based on it as natural language model of meaning, which has certain [deficiencies](doc/meaning.md#language).

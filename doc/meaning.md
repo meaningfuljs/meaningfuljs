@@ -4,19 +4,17 @@
 What is meaning?
 ----------------
 
-Meaning is a complex of relations, which is expressed through identifiers and which corresponds to a complex of object-actions and/or relations.
-
-Object-actions of real space-time flattens to relations of abstract space-time and identifiers used for communicating between different abstract space-times.
+Meaning is a complex of relations, which is expressed through identifiers and which corresponds to a complex of object-actions or relations (abstract object-actions). The process of meaning recognition is finding similarity between real and/or abstract object-actions through identification, abstraction, specification, classification, etc.
 
 ![Meaning](meaning1.png "Meaning")
 
 ### Example 1
 
-1.	Real world object-actions are "Sun", "Venus", "Earth", and "orbit" (the rest of planets are not considered to save space and time).
-2.	These object-actions are expressed with "Solar system" identifier.
-3.	"Solar system" maps to Bob's model of "Solar system", which is understood by him as "Venus orbits Sun".
-4.	"Solar system" maps to Alice's model of "Solar system", which is understood by her as "Venus and Earth".
-5.	Alice reads books on astronomy and her relations of both "Earth" and "Venus" refers to astronomy data. Whereas Bob knows "Venus" exists but no more than that.
+1.	Real world object-actions are `Sun`, `Venus`, `Earth`, and `orbit` (the rest of planets are not considered to save space and time).
+2.	These object-actions are expressed with `Solar system` identifier.
+3.	`Solar system` maps to Bob's model of `Solar system`, which is understood by him as `Venus orbits Sun`.
+4.	`Solar system` maps to Alice's model of `Solar system`, which is understood by her as `Venus and Earth`.
+5.	Alice reads books on astronomy and her relations of both `Earth` and `Venus` refers to astronomy data. Whereas Bob knows `Venus` exists but no more than that.
 
 ![Meaning](meaning2.png "Meaning")
 
@@ -48,6 +46,19 @@ Therefore, if you want to be sure you talk about the same "logic", you need to t
 ### Example 4
 
 There are some things which are somewhere between real and abstract worlds, for example, movies or applications. If we do not talk about physical storage for them, they are abstract things. But we can refer to them quite precisely, because they consist of abstract objects (scenes or graphical controls), which borders can be strictly defined.
+
+### Example 5
+
+`Mary said to me John thinks Venus is the third planet in the Solar System`
+`Mary told me: "You know that John thinks Venus is the third from the Sun?"`
+`Mary sms me: "Venus is 3rd (c) John"`
+
+* Though `Mary` and `John` are referred only by first name, in fact, meaning of these identifiers are specific persons, which may be precisely identified either by full name and date/place of birth or by some ID. `me` is a pronoun which refers to specific person too. `Mary` and `John` could be fiction characters of some piece of art or be imaginary persons just for illustration. Then, they are relations of some abstract space-time (book, movie, example). But also they could refer to real persons from this abstract space-time.
+* `Venus` here is the second planet of the Solar System nevertheless what is stated in this sentence. `the Solar System` is the planetary system of the Sun (not some object named after it, etc). But `Venus` and `the Solar System` could be a part of a piece of art, which detaches its meaning from real world object-actions. You may think `Venus` and `the Solar system` relates to abstract space-time of astronomy. Though it is true but more precisely astronomical object-actions are parts of real space-time, whereas the content of astronomy world is rather theories which describe astronomical object-actions.
+* `planet` has own definition, which describes criteria of similarity for astronomical objects.
+* `the third` has numerical/order meaning (explained by math semantics)
+* `John thinks` indicates abstract space-time of John thoughts. `Mary said` indicates abstract space-time of Mary memory (as she memorizes what `John thinks`) and communication of meaning.
+* `is` is relation of equality or similarity
 
 <a name="whatiswhat"></a>
 What is what

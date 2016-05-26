@@ -1,0 +1,10 @@
+body #meaningful-control-panel {
+	position:fixed !important;
+	position: absolute;
+	bottom: 4px;
+	right: 4px;
+	background-color: white;
+	padding: 8px;
+	border: 2px solid #3399ff;
+	border-radius: 10px;
+}
