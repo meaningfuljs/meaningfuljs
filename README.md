@@ -9,10 +9,10 @@ It introduces [simple markup](doc/syntax.md) for plain text, which allows answer
 Why this approach is different?
 -------------------------------
 
-1. It based on my [theory of meaning](doc/meaning.md) ([why?](doc/why.md)), which is slightly different from existing ones and helps to represent meaning more adequately.
+1. There is [the missing link](doc/the-missing-link.md) between ambiguous natural language and too strict formal approaches.
 2. Markup may be applied to plain text. Therefore, potentially, its usage scope is wider than HTML or even Semantic Web one as you can apply it to any data.
-3. Simple enough approach which can be used as soon as you is familiar with [syntax](doc/syntax.md) and [theory](doc/meaning.md), which are intuitive and quite straighforward.
-4. It uses natural language but is not based on it as natural language model of meaning, which has certain [deficiencies](doc/meaning.md#language).
+3. Simple enough approach which can be used as soon as you is familiar with syntax and theory, which are intuitive and quite straighforward.
+4. It uses natural language but is not based on it as natural language model of meaning, which has certain deficiencies.
 
 What this approach is not?
 --------------------------
@@ -37,6 +37,7 @@ When this approach can work for you?
    * Meaningful.js allows to create simple knowledge base on the base of one table and answer to simple [questions](doc/questions.md).
 * A page about some application (for example, imaginary [operating system](operating-system.html))
    * Basing on this page and data about your computer you can figure out can you install OS on your computer.
+* Application [documentation](doc/app.md).
 
 More examples are in form of [unit tests](spec).
    
