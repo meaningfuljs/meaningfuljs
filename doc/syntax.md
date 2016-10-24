@@ -7,6 +7,12 @@ Meaningful markup applies to plain text with square bracket elements. Markup can
 The Sun <span class="rel">[#1 has property #2]</span> has <span class="rel"> [#2/]</span> color <span class="rel">[/#2]</span>
 </div>
 
+Alternative syntax with curly brackets:
+
+<div class="meaningful">
+The Sun <span class="rel">{#1 has property #2}</span> has <span class="rel"> {#2/}</span> color <span class="rel">{/#2}</span>
+</div>
+
 * `#1` is a reference for `the Sun`
 * `#2` is a reference for `color`
 * They linked with `has property` relation

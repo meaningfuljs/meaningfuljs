@@ -13,6 +13,9 @@ Why this approach is different?
 2. Markup may be applied to plain text. Therefore, potentially, its usage scope is wider than HTML or even Semantic Web one as you can apply it to any data.
 3. Simple enough approach which can be used as soon as you is familiar with syntax and theory, which are intuitive and quite straighforward.
 4. It uses natural language but is not based on it as natural language model of meaning, which has certain deficiencies.
+5. It may change our understanding of [user interface](https://dzone.com/articles/the-next-user-interface-why-how-and-when), [communication](http://dzone.com/articles/is-modern-e-communication-meaningful-enough), and [software engineering](https://dzone.com/articles/the-missing-link-of-software-engineering).
+
+And another [20 reasons why](doc/20-reasons.md).
 
 What this approach is not?
 --------------------------
