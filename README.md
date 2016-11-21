@@ -6,6 +6,8 @@ Meaningful.js
 Meaningful.js is an experimental library which uses natural intelligence for dealing with meaning.
 It introduces [simple markup](doc/syntax.md) for plain text, which allows answering to simple [questions](doc/questions.md) like `What is diameter of Jupiter?` or `Can I run OS_like_OS on my computer?`,  even in [simplified natural language](nl-questions.md) form, and solving uncomplicated [math problems](doc/execution.md) like `Mary has 5 apples, and Tom gave her 7 apples, then Mary ate 3 apples. How many apples does Mary have now?`.
 
+Can it [change the world](doc/can-semantics-change-the-world.md)?
+
 Why this approach is different?
 -------------------------------
 
@@ -15,7 +17,7 @@ Why this approach is different?
 4. It uses natural language but is not based on it as natural language model of meaning, which has certain deficiencies.
 5. It may change our understanding of [user interface](https://dzone.com/articles/the-next-user-interface-why-how-and-when), [communication](http://dzone.com/articles/is-modern-e-communication-meaningful-enough), [software engineering](https://dzone.com/articles/the-missing-link-of-software-engineering), and [involvement of humans in semantics](https://dzone.com/articles/do-users-need-human-friendly-semantics).
 
-And another [20 reasons why](doc/20-reasons.md).
+And another [20 reasons why](doc/20-reasons.md) (almost the same at dzone: [pt1](https://dzone.com/articles/20-reasons-why-semantic-technologies-are-inefficie-1), [pt2](https://dzone.com/articles/20-reasons-why-semantic-technologies-are-inefficie) ).
 
 What this approach is not?
 --------------------------
@@ -84,6 +86,6 @@ Meaningful.js is available for Node.js as well as some browsers (Chrome, Firefox
 
 ## Maintainers
 
-* Yuriy Guskov <muesli.fjagnn@alg.cimom> (key: 10-2-5-3)
+* Yuriy Guskov < meaningful ddoott js aatt g m a i l >
 
 Copyright (c) 2016 Yuriy Guskov. This software is licensed under the MIT License.
