@@ -1,7 +1,6 @@
 Can semantic technologies change the world (of computers)?
 ==========================================================
 
----
 ### [Machines vs. humans](#mvh)
 ### [Reshaping meaning representation](#markup)
 ### [Reshaping user interface](#ui)
