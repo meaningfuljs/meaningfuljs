@@ -6,7 +6,7 @@
 	},
 	"dependencies": {
 		"bootstrap": "*",
-		"jsdom": "*",
+		"jsdom": "8.5.0",
 		"jquery": "*",
 		"underscore": "*"
 	},

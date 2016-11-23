@@ -1,4 +1,4 @@
-/*                                            6
+/*
  *     Meaningful.js 0.0.1
  *     http://_NOT_meaningfuljs.org
  *     (c) 2016 Yuriy Guskov
@@ -57,7 +57,7 @@
 	var SIGN_EREF       = '^'; // (potentially) external ref
 	var SIGN_QUOTE		= '"';
 	var SIGN_SQUOTE		= '\'';
-	var SIGN_COMPLEX    = '[+]';
+	var SIGN_COMPLEX    = SIGN_MU_BEGIN + '+' + SIGN_MU_END;
 
 	var SIGN_DUMMY_REF	= SIGN_INT_REF + '0';
 	
@@ -281,15 +281,15 @@
 		var s2 = mu(REL_ATTRS[key].bstring);
 		var replaced = false;
 		if (s1.indexOf('is') === 0 && s1.length > 2) {
-			 s1 = '[is]' + s1.substring(2);
+			 s1 = SIGN_MU_BEGIN + 'is' + SIGN_MU_END + s1.substring(2);
 			 replaced = true;
 		}
 		if (s1.indexOf('has') === 0 && s1.length > 2) {
-			 s1 = '[has]' + s1.substring(3);
+			 s1 = SIGN_MU_BEGIN + 'has' + SIGN_MU_END + s1.substring(3);
 			 replaced = true;
 		}
 		if (replaced && s1.indexOf('of') === s1.length - 2)
-			s1 = s1.substring(0, s1.length - 2) + '[of]';
+			s1 = s1.substring(0, s1.length - 2) + SIGN_MU_BEGIN + 'of' + SIGN_MU_END;
 		if (replaced)
 			REL_2ND_PASS_MARKUP[s1] = s2;
 	});
