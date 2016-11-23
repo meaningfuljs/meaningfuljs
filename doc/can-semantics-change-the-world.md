@@ -1,12 +1,16 @@
 Can semantic technologies change the world (of computers)?
 ==========================================================
 
+### [Complete vs. consistent](#cc)
 ### [Machines vs. humans](#mvh)
 ### [Reshaping meaning representation](#markup)
 ### [Reshaping user interface](#ui)
 ### [Reshaping application/data interfaces](#api)
 ### [Reshaping the Future](#future)
 ---
+
+<a name="cc"></a>Complete vs. consistent
+-------------------
 
 Is it possible to know everything? The answer depends on adherence to consistency or completeness. In terms of consistency, that's quite possible humans will be able to understand if not all but the most of laws of (at least) observable Nature. Will it be enough? Any scientific law is a dependency of constituents, which is considered in isolation of other factors. Any real situation is a combination of numerous and unknown factors multiplied on a variety of different laws of Nature. Something can be described with scientific laws only if all assumptions satisfied or, in other words, other or unknown factors do not affect the situation. If we cannot identify other factors, then, theoretically, we can react to an input, which can be considered as a combination of these factors. But without knowing what exactly influences the situation, we won't be able to anticipate future problems. How can we be sure we know all consistency rules of the Nature or of the specific situation? In terms of completeness, it is definitely not possible to know all facts about the Universe in its entirety. It is quite old problem, which states to keep all facts about something you need to have storage with the same volume as this something. And even if we can zip information, considering it is created constantly, we need quite powerful algorithms and hardware to handle real-time archiving. Moreover, if we consider facts about the past and future too, then the problem of knowing everything is theoretically possible only if we would have access to any information from the entire Universe in the whole lifespan. That is definitely beyond human abilities in the near future.
 
@@ -47,6 +51,8 @@ Try "sprout of apple" or "apple sprout" query. Results are (a) applications with
 How can semantics be represented for users? One example was search results as above. Another example is knowledge navigators and semantic browsers, which sometimes just dump piles of related information with weak ordering and prioritizing. Yet another example is Wikipedia, where information is ordered and prioritized but is a result of ad-hoc editing and represents a static meaning scope. We need combine both dynamic and ad-hoc approaches. Natural language identifiers are formed very flexibly and we cannot have a static scope or a wiki page for each one-time identifier like "the third orange leaf of the pot, which stands on the second floor of the beautiful building in suburb of the capital of the country with the highest rate of scientific discoveries". Though ad-hoc approach could be preferable when you work with limited domain area.
 
 Then what? One possible solution is [meaningful markup](https://github.com/meaningfuljs/meaningfuljs). It may help to outline and disambiguate simplified semantics in a text. Such markup is similar to hypertext (or can be integrated into it) with important distinctions: (a) usage of curly (or square) brackets not angular ones, (b) usage of human-friendly semantics identifiers not Web resources, (c) usage of semantic relations (which may be present in text too) not tags. For example, "xxarrgh {is} a blue sprout {of} half-vegetable half-fruit". That is, we separated identifiers and linked them with "is" and "of" relations. Markup composing may be helped with user interface by suggesting disambiguating identifiers, borders between them, known relations, etc. Will users use such markup? Do they use advanced search syntax? Everything depends on motivation. The more chances for better results, the more users will use it.
+
+![Meaningful](meaning_flexibility_ambiguousness.png "Meaning flexibility and ambiguousness")
 
 Of course, we do not propose to markup big volumes of information. If algorithms were able to do this one day, good for them. And for us. But as for now, they can only try to guess, whereas humans can do this at least for small but important chunks of information. And, certainly, they can collaborate with each other. One possibility of collaboration is two-way conversation, where algorithm guesses can be corrected by humans. Another possibility is to help humans with markup of summarizing meaning only. Will it be enough? Summaries play one of the most important role in semantics. Search results are more reliable if they return documents with a query words in a title but not in a body. If a title adequately summarizes document content, a search has higher probability to find this document. Therefore, the situation can improve even if only summaries/titles will become meaningful.
 
