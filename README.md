@@ -4,7 +4,7 @@ Meaningful.js
 **Lightweight Natural Intelligence Framework**
 
 Meaningful.js is an experimental library which uses natural intelligence for dealing with meaning.
-It introduces [simple markup](doc/syntax.md) for plain text, which allows answering to simple [questions](doc/questions.md) like `What is diameter of Jupiter?` or `Can I run OS_like_OS on my computer?`,  even in [simplified natural language](nl-questions.md) form, and solving uncomplicated [math problems](doc/execution.md) like `Mary has 5 apples, and Tom gave her 7 apples, then Mary ate 3 apples. How many apples does Mary have now?`.
+It introduces [simple markup](doc/syntax.md) for plain text, which allows answering to simple [questions](doc/questions.md) like `What is diameter of Jupiter?` or `Can I run OS_like_OS on my computer?`,  even in [simplified natural language](doc/nl-questions.md) form, and solving uncomplicated [math problems](doc/execution.md) like `Mary has 5 apples, and Tom gave her 7 apples, then Mary ate 3 apples. How many apples does Mary have now?`.
 
 Can it [change the world](doc/can-semantics-change-the-world.md)?
 
