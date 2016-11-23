@@ -7,7 +7,7 @@ Execution is required to answer , for example, [questions](questions.md) of math
 * Then when Tom changed this situation
 * And when Mary ate as many apples as she could
 
-> <div class="meaningful">
+> <pre>
 > <div><span class="rel">[/]</span></div>
 > 	<div class="indent">Mary<span class="rel">[#m] [has #1a #1b]</span></div>
 > 	<div class="indent">5<span class="rel">[#1a] [@math units of #2a]</span> apples<span class="rel">[#2a]</span> and</div>
@@ -24,7 +24,7 @@ Execution is required to answer , for example, [questions](questions.md) of math
 > 	<div class="indent"><span class="rel">[/]</span>Mary<span class="rel">[/#m] [does]</span> ate <span class="rel">[has property #7] [is the same @math sub]</span></div>
 > 	<div class="indent">3 <span class="rel">[#7 @math units of]</span> apples</div>
 > <div><span class="rel">[/#ev3]</span></div>
-> </div>
+> </pre>
 
 Typical question of math problem is not against data of math problem but against result of its execution:
 
