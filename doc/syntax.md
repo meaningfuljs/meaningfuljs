@@ -10,7 +10,7 @@ Meaningful markup applies to plain text with curly bracket elements. Markup can 
 Alternative syntax with square brackets:
 
 > <pre>
-> The Sun <span class="rel">[#1 has property #2]</span> has <span class="rel"> [#2/]</span> color <span class="rel">[/#2]</span>
+> The Sun <span class="rel">{#1 has property #2}</span> has <span class="rel"> {#2/}</span> color <span class="rel">{/#2}</span>
 > </pre>
 
 * `#1` is a reference for `the Sun`
