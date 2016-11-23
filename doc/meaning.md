@@ -99,9 +99,9 @@ Understanding this, theory of meaning should not rely on "nouns", "verbs", "subj
 
 Let us consider this on example of complex sentence:
 
-<div class="meaningful">
-After we left home we could calmly watch Perseids in Switzerland for three days of August.
-</div>
+> <pre>
+> After we left home we could calmly watch Perseids in Switzerland for three days of August.
+> </pre>
 
 What is meaning of that? What meaning we can extract if we will get know "we" is a pronoun and "August" is a noun? The real meaning is understanding what identifiers refer to:
 
@@ -134,9 +134,9 @@ As it is stated before, object-actions flattened to "relations" and all identifi
 
 We start with the most common relation: default one. It is denoted with a whitespace in English and similar languages. For example in `Earth orbits the Sun`, there are 3 default relations but the one between `the` and `Sun` can be omitted as `the Sun` is one identifier (at least, from the point of view of meaning but maybe not for language itself). Other 2 relations (if not specified) are default ones:
 
-<div class="meaningful">
-Earth <span class="rel">rel</span> orbits <span class="rel">rel</span> the Sun
-</div>
+> <pre>
+> Earth <span class="rel">{rel}</span> orbits <span class="rel">{rel}</span> the Sun
+> </pre>
 
 That is, these identifiers are linked somehow but we don't know how exactly.
 
@@ -151,10 +151,10 @@ The second stage for meaning is comparison of identifiers between each others. I
 
 `the Solar system`, `Solar system`, `Systeme solaire`, or `le Système solaire` or `it` (in the sentence where Solar system was mentioned) refers to the same system of the Sun and planets. Slightly more complex example: 
 
-<div class="meaningful">
-<div>The Solar System is the gravitationally bound system comprising the Sun and the objects that orbit it, either directly or indirectly </div>
-<div>Solar system is the Sun and 8 planets which orbit it</div>
-</div>
+> <pre>
+> The Solar System is the gravitationally bound system comprising the Sun and the objects that orbit it, either directly or indirectly
+> Solar system is the Sun and 8 planets which orbit it
+> </pre>
 
 Of course, it is the same Solar system but scope of definition differs: `8 planets which orbit it` *abstracts* `the objects that orbit it`.
 
@@ -162,28 +162,28 @@ Of course, it is the same Solar system but scope of definition differs: `8 plane
 
 Indicates if an identifier refers to the same object-action and/or relation.
 
-<div class="meaningful">
-Earth orbits <span class="rel">[/]</span>the Sun<span class="rel">[/#1]</span> and heated by <span class="rel">[/]</span>it<span class="rel">[/#2 is the same #1]</span>
-</div>
+> <pre>
+> Earth orbits <span class="rel">{/}</span>the Sun<span class="rel">{/#1}</span> and heated by <span class="rel">{/}</span>it<span class="rel">{/#2 is the same #1}</span>
+> </pre>
 
 ### is similar
 
 Indicates if an identifiers refers to similar object-actions and/or relations.
 
-<div class="meaningful">
-The Sun <span class="rel">[is similar]</span> Sirius
-</div>
+> <pre>
+> The Sun <span class="rel">{is similar}</span> Sirius
+> </pre>
 
 ### abstracts / specifies
 
-`[abstracts]` indicates an identifier of smaller similar content, whereas `[specifies]` indicates an identifier of bigger smaller content:
+`{abstracts}` indicates an identifier of smaller similar content, whereas `{specifies}` indicates an identifier of bigger smaller content:
 
-<div class="meaningful">
-Mars <span class="rel">[abstracts]</span> https://en.wikipedia.org/wiki/Mars <br/> <br/>
-Mars <span class="rel">[abstracts]</span> the fourth planet from the Sun, which is often referred to as the "Red Planet" because the iron oxide prevalent on its surface gives it a reddish appearance <br/> <br/>
-https://en.wikipedia.org/wiki/Mars <span class="rel">[specifies]</span> Mars <br/> <br/>
-The fourth planet from the Sun, which is often referred to as the "Red Planet" because the iron oxide prevalent on its surface gives it a reddish appearance <span class="rel">[specifies]</span> Mars
-</div>
+> <pre>
+> Mars <span class="rel">{abstracts}</span> https://en.wikipedia.org/wiki/Mars
+> Mars <span class="rel">{abstracts}</span> the fourth planet from the Sun, which is often referred to as the "Red Planet" because the iron oxide prevalent on its surface gives it a reddish appearance
+> https://en.wikipedia.org/wiki/Mars <span class="rel">{specifies}</span> Mars
+> The fourth planet from the Sun, which is often referred to as the "Red Planet" because the iron oxide prevalent on its surface gives it a reddish appearance <span class="rel">{specifies}</span> Mars
+> </pre>
 
 Types, instances, conditions, cause-effect
 ------------------------------------------
@@ -193,79 +193,79 @@ Types types *abstract* similar meaning. Strictly speaking, a type is a group of 
 * Current computer approaches: In computer technologies type systems flourish (but they may have different definition of "type"). It was unavoidable as any application clones some data/objects/behavior.
 * Proposed approach: Uses types, instances, conditions, and cause-effect explicitly.
 
-<div class="meaningful">
-Venus and the Earth are planets
-</div>
+> <pre>
+> Venus and the Earth are planets
+> </pre>
 
 `Venus` and `the Earth` are instances of `planet` by definition (in most of cases, we take this as granted). It is implied `Venus` is *similar* to `the Earth` at least by 1 common feature and `planet` is a word for all similar objects.
 
-<div class="meaningful">
-<div>menu <span class="rel">has part</span> menu item</div>
-<div>context menu <span class="rel">is instance of</span> menu</div>
-<div>desktop <span class="rel">has</span> context menu <span class="rel">has part</span> Properties</div>
-</div>
+> <pre>
+> menu <span class="rel">has part</span> menu item
+> context menu <span class="rel">is instance of</span> menu
+> desktop <span class="rel">has</span> context menu <span class="rel">has part</span> Properties
+> </pre>
 
 Type implies similarity of relations. If `desktop context menu` *is instance of* `menu`, which *has part* `menu item`, then `Properties` which *is part of* `desktop context menu` is `menu item` too.
 
-<div class="meaningful">
-A planet is an astronomical object orbiting a star that
-<div class="indent">is massive enough to be rounded by its own gravity</div>
-<div class="indent">is not massive enough to cause thermonuclear fusion</div>
-<div class="indent">has cleared own neighbourhood</div>
-</div>
+> <pre>
+> A planet is an astronomical object orbiting a star that
+>   is massive enough to be rounded by its own gravity
+>   is not massive enough to cause thermonuclear fusion
+>   has cleared own neighbourhood
+> </pre>
 
 Definition of `planet` type includes several conditions (one of which is "cause-effect" one: `not massive enough to cause thermonuclear fusion`). Both `Venus` and `the Earth` has specific properties which satisfies these conditions.
 
-<div class="meaningful">
-<div>A solar eclipse occurs if the Sun is temporarily obscured by the Moon, which passes between the Sun and the Earth.</div>
-<div>A solar eclipse occurs because the Sun is temporarily obscured by the Moon, which passes between the Sun and the Earth.</div>
-</div>
+> <pre>
+> A solar eclipse occurs if the Sun is temporarily obscured by the Moon, which passes between the Sun and the Earth.
+> A solar eclipse occurs because the Sun is temporarily obscured by the Moon, which passes between the Sun and the Earth.
+> </pre>
 
 Sometimes a condition and a cause-effect are interchangeable because condition implies actions.
 
-<div class="meaningful">
-<div>I have finished my work and went home.</div>
-<div>If you finish your work, you go home.</div>
-<div>If you have finished your work, you would go home.</div>
-<div>Since you have finished your work, you may go home.</div>
-</div>
+> <pre>
+> I have finished my work and went home.
+> If you finish your work, you go home.
+> If you have finished your work, you would go home.
+> Since you have finished your work, you may go home.
+> </pre>
 
 You can see usually conditions are just a complex of object-actions and relations which are can be considered as condition / cause-effect in one moment time and be realized in another.
 
-<div class="meaningful">
-<div>Ice melts if temperature is above 0 C</div>
-<div>Ice melts as temperature now is above 0 C</div>
-</div>
+> <pre>
+> Ice melts if temperature is above 0 C
+> Ice melts as temperature now is above 0 C
+> </pre>
 
 When we deal with mathematical condition, then we use special comparison operators. But that is not the problem for natural language, which may convert them into the fact (`temperature is above 0 C`). This happens when we cannot indicate temperature precisely and comparison operators allow fuzzy definition.
 
 ### is type of / is instance of
 
-`[is type of]` and reverse `[is instance of]` relations indicate a name of a group of similar object/actions and/or relations or instances of such group.
+`{is type of}` and reverse `{is instance of}` relations indicate a name of a group of similar object/actions and/or relations or instances of such group.
 
-<div class="meaningful">
-star <span class="rel">[is type of]</span> The Sun <br/> <br/>
-The Sun <span class="rel">[is instance of]</span> star
-</div>
+> <pre>
+> star <span class="rel">{is type of}</span> The Sun
+> The Sun <span class="rel">{is instance of}</span> star
+> </pre>
 
 ### has condition / is condition of
 
-`[has condition]` and `[is condition of]` refer to relation between a condition and a consequence, which could be or could not be not ordered in time.
+`{has condition}` and `{is condition of}` refer to relation between a condition and a consequence, which could be or could not be not ordered in time.
 
-<div class="meaningful">
-OS_like_OS <span class="rel">[is done]</span> run <span class="rel">[has property]</span> on <span class="rel">[/]</span>computer <span class="rel">[/#c has #1]</span> with <br/>
-	<span class="indent"><span class="rel">[/]</span>1 <span class="rel">[#2] [@math greater than] [@math units of]</span> GHz<span class="rel">[#3]</span> or faster <span class="rel">[/]</span></span> <br/>
-	<span class="indent">processor<span class="rel">[/#1] [has property frequency] [has condition #2]</span></span> <br/>
-</div>
+> <pre>
+> OS_like_OS <span class="rel">{is done}</span> run <span class="rel">{has property}</span> on <span class="rel">{/}</span>computer <span class="rel">{/#c has #1}</span> with
+> 	<span class="indent"><span class="rel">{/}</span>1 <span class="rel">{#2} {@math greater than} {@math units of}</span> GHz<span class="rel">{#3}</span> or faster <span class="rel">{/}</span></span>
+> 	<span class="indent">processor<span class="rel">{/#1} {has property frequency} {has condition #2}</span></span>
+> </pre>
 
 ### causes / caused by
 
-`[causes]` and `[caused by]` refer to relation between a cause and an effect which are to be ordered in time.
+`{causes}` and `{caused by}` refer to relation between a cause and an effect which are to be ordered in time.
 
-<div class="meaningful">
-<div>Earth <span class="rel">[causes]</span> lunar eclipse</div>
-<div>lunar eclipse <span class="rel">[caused by]</span> Earth</div>
-</div>
+> <pre>
+> Earth <span class="rel">{causes}</span> lunar eclipse
+> lunar eclipse <span class="rel">{caused by}</span> Earth
+> </pre>
 
 Undefined Is, Has, Of
 ---------------------------------
@@ -274,39 +274,39 @@ Undefined Is, Has, Of
 * Current computer approaches: Present implicitly in some constructs.
 * Proposed approach: To use it to be compatible with natural language. `has` relation is considered as reverse to `of`.
 
-<div class="meaningful">
-<div>Color <span class="rel">of</span> the Sun <span class="rel">is</span> yellow </div>
-<div>The Sun <span class="rel">is</span> yellow </div>
-<div>The Sun <span class="rel">has</span> yellow color</div>
-</div>
+> <pre>
+> Color <span class="rel">of</span> the Sun <span class="rel">is</span> yellow 
+> The Sun <span class="rel">is</span> yellow 
+> The Sun <span class="rel">has</span> yellow color
+> </pre>
 
 Please note, when we tell `fly is move through the air` we use undefined `is` but, in fact, it is rather `is similar` or `is instance of` relation.
 
 ### is
 
-`[is]` relation is undefined relation for others like `[is similar]`, `[is the same]`, etc.
+`{is}` relation is undefined relation for others like `{is similar}`, `{is similar}`, etc.
 
-<div class="meaningful">
-The Sun <span class="rel">[is]</span> star
-</div>
+> <pre>
+> The Sun <span class="rel">{is}</span> star
+> </pre>
 
 ### has / of
 
-`[has]` relation is undefined relation for others like `[has part]`, `[has property]`, etc. `[of]` relation is undefined relation for others like `[is part of]`, etc (which overlaps with undefined `is` relations).
+`{has}` relation is undefined relation for others like `{has part}`, `{has property}`, etc. `{of}` relation is undefined relation for others like `{is part of}`, etc (which overlaps with undefined `is` relations).
 
-<div class="meaningful">
-<div>The Sun <span class="rel">[has]</span> atmosphere</div>
-<div>atmosphere <span class="rel">[of]</span> The Sun</div>
-</div>
+> <pre>
+> The Sun <span class="rel">{has}</span> atmosphere
+> atmosphere <span class="rel">{of}</span> The Sun
+> </pre>
 
 ### Ambiguities
 
-<div class="meaningful">
-<div>color <span class="rel">is</span> yellow</div>
-<div>yellow <span class="rel"></span> color</div>
-</div>
+> <pre>
+> color <span class="rel">is</span> yellow
+> yellow <span class="rel"></span> color
+> </pre>
 
-Please note, for example, `[has value]` usually is expressed with undefined `is`, whereas `[is value of]` usually is expressed with default relation (whitespace).
+Please note, for example, `{has value}` usually is expressed with undefined `is`, whereas `{is value of}` usually is expressed with default relation (whitespace).
 
 <a name="structure"></a>
 Structural (spatial) relations
@@ -320,75 +320,75 @@ Structural relations implied in natural language but usually they expressed thro
 
 Compare specific structural relations with undefined ones:
 
-<div class="meaningful">
-<div>The Sun <span class="rel">has part</span> atmosphere <span class="rel">has property</span> color <span class="rel">has value</span> yellow</div>
-<div>The Sun <span class="rel">has</span> atmosphere <span class="rel">has</span> color <span class="rel">has</span> yellow</div>
-<br/>
-<div>yellow <span class="rel">is value of</span> color <span class="rel">is property of</span> atmosphere <span class="rel">is part of</span> the Sun</div>
-<div>yellow <span class="rel">is</span> color <span class="rel">of</span> atmosphere <span class="rel">of</span> the Sun</div>
-</div>
+> <pre>
+> The Sun <span class="rel">has part</span> atmosphere <span class="rel">has property</span> color <span class="rel">has value</span> yellow
+> The Sun <span class="rel">has</span> atmosphere <span class="rel">has</span> color <span class="rel">has</span> yellow
+> 
+> yellow <span class="rel">is value of</span> color <span class="rel">is property of</span> atmosphere <span class="rel">is part of</span> the Sun
+> yellow <span class="rel">is</span> color <span class="rel">of</span> atmosphere <span class="rel">of</span> the Sun
+> </pre>
 
 ### has part / is part of
 
-`[has part]` and reverse `[is part of]` relations express inclusion of things.
+`{has part}` and reverse `{is part of}` relations express inclusion of things.
 
-<div class="meaningful">
-<div>The Sun <span class="rel">[has part]</span> atmosphere</div>
-<div>atmosphere <span class="rel">[is part of]</span> The Sun</div>
-</div>
+> <pre>
+> The Sun <span class="rel">{has part}</span> atmosphere
+> atmosphere <span class="rel">{is part of}</span> The Sun
+> </pre>
 
 ### has id / is id of
 
-`[has id]` and reverse `[is id of]` relations express one or several properties which identify object-actions and/or relations.
+`{has id}` and reverse `{is id of}` relations express one or several properties which identify object-actions and/or relations.
 
-<div class="meaningful">
-<div>star <span class="rel">[has id]</span> name</div>
-<div>name <span class="rel">[is id of]</span> star</div>
-</div>
+> <pre>
+> star <span class="rel">{has id}</span> name
+> name <span class="rel">{is id of}</span> star
+> </pre>
 
 ### has property / is property of
 
-`[has property]` and reverse `[is property of]` relations used for property of things (that is, some of their characteristics, which does not belong to spatial structure).
+`{has property}` and reverse `{is property of}` relations used for property of things (that is, some of their characteristics, which does not belong to spatial structure).
 
-<div class="meaningful">
-<div>The Sun <span class="rel">[has property]</span> color</div>
-<div>color <span class="rel">[is property of]</span> The Sun</div>
-</div>
+> <pre>
+> The Sun <span class="rel">{has property}</span> color
+> color <span class="rel">{is property of}</span> The Sun
+> </pre>
 
 ### has value / is value of
 
-`[has value]` and reverse `[is value of]` relations indicate values of properties.
+`{has value}` and reverse `{is value of}` relations indicate values of properties.
 
-<div class="meaningful">
-<div>color <span class="rel">[has value]</span> yellow</div>
-<div>yellow <span class="rel">[is value of]</span> color</div>
-</div>
+> <pre>
+> color <span class="rel">{has value}</span> yellow
+> yellow <span class="rel">{is value of}</span> color
+> </pre>
 	
 Behavioral (temporal) relations
 -------------------------------
 
 * `does` / `done by`, `is done` / `does what`. A relation between objects and actions, which corresponds to subject-predicate-object scheme.
 
-<div class="meaningful">
-<div>Earth <span class="rel">orbits</span> The Sun </div>
-<div>The Sun <span class="rel">orbited</span> by Earth</div>
-</div>
+> <pre>
+> Earth <span class="rel">orbits</span> The Sun 
+> The Sun <span class="rel">orbited</span> by Earth
+> </pre>
 
 ### does / done by, is done / does what
 
-`[does]` is a relation between a subject and a predicate, and `[does what]` between a predicate and an object. `[is done]` and `[done by]` links object/predicate/subject in different direction.
+`{does}` is a relation between a subject and a predicate, and `{does what}` between a predicate and an object. `{is done}` and `{done by}` links object/predicate/subject in different direction.
 
-<div class="meaningful">
-<div>Earth <span class="rel">[does]</span> orbits <span class="rel">[does what]</span> The Sun</div>
-<div>The Sun <span class="rel">[is done]</span> orbited <span class="rel">[#1 done by #2]</span> by <span class="rel">[/]</span> Earth <span class="rel">[/#2]</span></div>
-</div>
+> <pre>
+> Earth <span class="rel">{does}</span> orbits <span class="rel">{does what}</span> The Sun
+> The Sun <span class="rel">{is done}</span> orbited <span class="rel">{#1 done by #2}</span> by <span class="rel">{/}</span> Earth <span class="rel">{/#2}</span>
+> </pre>
 
 Direction of order could matter less if we express object and complements with `has` or `has property`.
 
-<div class="meaningful">
-<div>Earth <span class="rel">[does]</span> orbit <span class="rel">[has property]</span> The Sun </div>
-<div>Earth <span class="rel">[has]</span> orbit <span class="rel">[has property]</span> The Sun </div>
-</div>
+> <pre>
+> Earth <span class="rel">{does}</span> orbit <span class="rel">{has property}</span> The Sun 
+> Earth <span class="rel">{has}</span> orbit <span class="rel">{has property}</span> The Sun 
+> </pre>
 	
 Other types of relations (spatial, temporal, mathematical, logical, etc)
 ------------------------------------------------------------------------
@@ -402,52 +402,52 @@ There are a lot of relations, which are specific for different aspects of realit
 * `All`, `each`, `some`, and other quantification ones.
 * Many other types of relations, which may exist almost in any area of human activity.
 
-<div class="meaningful">
-OS_like_OS <span class="rel">[is done]</span> run <span class="rel">[has property]</span> on <span class="rel">[/]</span>computer <span class="rel">[/#c has #1]</span> with <br/>
-	<span class="indent"><span class="rel">[/]</span>1 <span class="rel">[#2] [@math greater than] [@math units of]</span> GHz<span class="rel">[#3]</span> or faster <span class="rel">[/]</span></span> <br/>
-	<span class="indent">processor<span class="rel">[/#1] [has property frequency] [has condition #2]</span></span> <br/>
-</div>
+> <pre>
+> OS_like_OS <span class="rel">{is done}</span> run <span class="rel">{has property}</span> on <span class="rel">{/}</span>computer <span class="rel">{/#c has #1}</span> with
+> 	<span class="indent"><span class="rel">{/}</span>1 <span class="rel">{#2} {@math greater than} {@math units of}</span> GHz<span class="rel">{#3}</span> or faster <span class="rel">{/}</span></span>
+> 	<span class="indent">processor<span class="rel">{/#1} {has property frequency} {has condition #2}</span></span>
+> </pre>
 
 Grouping
 --------
 
 Grouping used when meaning should be referred by shorter identifier:
 
-<div class="meaningful">
-OS_like_OS desktop <span class="rel">[is the same] [/]</span> OS_like_OS <span class="rel">[has]</span> desktop <span class="rel">[/#1]</span>
-</div>
+> <pre>
+> OS_like_OS desktop <span class="rel">{is similar} {/}</span> OS_like_OS <span class="rel">{has}</span> desktop <span class="rel">{/#1}</span>
+> </pre>
 
 Context
 -------
 
 Context is an abstract space-time, in which scope meaning given. Usually context is implied but not always.
 
-<div class="meaningful">
-<div>Tom thinks cold is -10 C</div>
-<div>Mary thinks cold is 0 C</div>
-<div>5 years ago Mary thought cold is 5 C but now thinks it is under -5 C</div>
-<div>Near ocean Tom thinks cold is -5 C and in town it is -10 C</div>
-</div>
+> <pre>
+> Tom thinks cold is -10 C
+> Mary thinks cold is 0 C
+> 5 years ago Mary thought cold is 5 C but now thinks it is under -5 C
+> Near ocean Tom thinks cold is -5 C and in town it is -10 C
+> </pre>
 
 Here `cold` is defined in context of (1) Tom, (2) Mary, (3) Mary 5 years ago and Mary now, (4) Tom near ocean and Tom in town. But, of course, context is not restricted only with what we think about things.
 
-<div class="meaningful">
-<div>In 1960 world population reached 3 billions</div>
-<div>Now the Earth bears around 7 billions</div>
-</div>
+> <pre>
+> In 1960 world population reached 3 billions
+> Now the Earth bears around 7 billions
+> </pre>
 
 First, `world` means `the Earth`. Second, `the Earth` in the first sentence is in `1960` and in the second one is in `2016`, which won't be `now` year later. Third, `billions` implies `people`. Usually this can be indicated just by explicit values for corresponding identifiers.
 
-<div class="meaningful">
-<div>Now<span class="rel">[@time "2016"]</span> the Earth bears around <span class="rel">[/]</span>7 billions<span class="rel">[@math units of "people"]</span></div>
-</div>
+> <pre>
+> Now<span class="rel">{@time "2016"}</span> the Earth bears around <span class="rel">{/}</span>7 billions<span class="rel">{@math units of "people"}</span>
+> </pre>
 
 In cases when some context is implied it means an explicitly expressed complex of object-action-relations somehow relates to an implicitly expressed complex of object-action-relations:
 
-<div class="meaningful">
-<div>There Tom was exhilarated by volcano views<span class="rel">[rel]</span></div>
-<div class="indent"><span class="rel">[/]</span> Iceland <span class="rel">[@space]</span>, <span class="rel">[/]</span>May 2015<span class="rel">[/#1t @time]</span> <span class="rel">[/#1]</span></div>
-</div>
+> <pre>
+> There Tom was exhilarated by volcano views<span class="rel">{rel}</span>
+>   <span class="rel">{/}</span> Iceland <span class="rel">{@space}</span>, <span class="rel">{/}</span>May 2015<span class="rel">{/#1t @time}</span> <span class="rel">{/#1}</span>
+> </pre>
 
 Abstract space-times, transformations (map, reduce, filter)
 -----------------------------------------------------------
@@ -456,37 +456,37 @@ Abstract space-time is inherent to any subject which perceive, feel, understand 
 
 From the point of view of meaning at least we should discern a reference to real space-time and abstract space-time. As for now, it is implied by default all references relate to real space-time otherwise they should be marked as ones belonging to some abstract space-time.
 
-<div class="meaningful">
-<div>Mary told me <span class="rel">[/]</span>what she thinks about Venus<span class="rel">[/ @Mary]</span></div>
-</div>
+> <pre>
+> Mary told me <span class="rel">{/}</span>what she thinks about Venus<span class="rel">{/ @Mary}</span>
+> </pre>
 
 Abstract space-times may be referred in chain (this is a draft of syntax):
 
-<div class="meaningful">
-<div>Tom knows Mary imagines</div>
-<div class="indent"><span class="rel">[/]</span></div>
-<div class="indent2">Venus as she have seen it in "The second in Solar system" movie</div>
-<div class="indent"><span class="rel">[/ @Mary@TheSecondInSolarSystem]</span></div>
-</div>
+> <pre>
+> Tom knows Mary imagines
+>   <span class="rel">{/}</span>
+>     Venus as she have seen it in "The second in Solar system" movie
+>   <span class="rel">{/ @Mary@TheSecondInSolarSystem}</span>
+> </pre>
 
-Though `Venus` identifier could be the same in any abstract space-time but similarity with original planet may be insignificant or even not real (for example, in a space of some fantasy tale about unreal Venus). Such crucial changes are result of transformation, which always accompanies referring from real or abstract space-time to abstract one. Usually, such transformation reduces or increases volume of information (which expressed with `[abstracts]` and `[specifies]` relations), but also it can isolate facts related to specific ares (for example, `Venus chemistry` is an abstract space-time of Venus, which contains only chemistry related knowledge, that is, `Venus[@chemistry]`), but finally it also maps `Venus` object-action to some abstract `Venus` object-action. Please note, pure mapping, reducing, or filtering are possible only in pure abstract transformations, in realitfy transformations always include grains of all of these transformation types.
+Though `Venus` identifier could be the same in any abstract space-time but similarity with original planet may be insignificant or even not real (for example, in a space of some fantasy tale about unreal Venus). Such crucial changes are result of transformation, which always accompanies referring from real or abstract space-time to abstract one. Usually, such transformation reduces or increases volume of information (which expressed with `{abstracts}` and `{specifies}` relations), but also it can isolate facts related to specific ares (for example, `Venus chemistry` is an abstract space-time of Venus, which contains only chemistry related knowledge, that is, `Venus{@chemistry}`), but finally it also maps `Venus` object-action to some abstract `Venus` object-action. Please note, pure mapping, reducing, or filtering are possible only in pure abstract transformations, in realitfy transformations always include grains of all of these transformation types.
 
 Data and metadata
 -----------------
 
 Do we need special definitions for regular data and so called metadata? Rather not than yes. Regularity of data is based on similarity (and expressed through types, classes, tables, etc), which is in core of the proposed approach. So called metadata is just a description of similarity:
 
-<div class="meaningful">
-<div>Planet <span class="rel">[has id]</span> name</div>
-<div>Planet <span class="rel">[has property]</span> diameter <span class="rel">[and]</span> number of satellites</div>
-</div>
+> <pre>
+> Planet <span class="rel">{has id}</span> name
+> Planet <span class="rel">{has property}</span> diameter <span class="rel">{and}</span> number of satellites
+> </pre>
 
 Data (it is implied `Earth` is instance of a planet and an identifier of corresponding planet):
 
-<div class="meaningful">
-<div>Planet <span class="rel">[is type of]</span> Earth</div>
-<div>Earth <span class="rel">[has property]</span> diameter <span class="rel">[has value]</span> 12756 km <span class="rel">[and]</span> number of satellites <span class="rel">[has value]</span> 1 </div>
-</div>
+> <pre>
+> Planet <span class="rel">{is type of}</span> Earth
+> Earth <span class="rel">{has property}</span> diameter <span class="rel">{has value}</span> 12756 km <span class="rel">{and}</span> number of satellites <span class="rel">{has value}</span> 1 
+> </pre>
 
 Do we need to define type of properties like `string` or `number`? In fact, such more precise approach might not work in all cases when information is defined inaccurately or vaguely. Thus, for diameter values could be 'twelve million meters' or 'almost 4 times less than the Moon one'.
 
@@ -497,17 +497,17 @@ Now, when we are familiar with base relations let us reconsider the process of m
 
 ### Identification
 
-<div class="meaningful">
-<div>Pluto</div>
-</div>
+> <pre>
+> Pluto
+> </pre>
 
 `Pluto` word is not enough to identify exactly what we mean, therefore we need either to indicate more precise meaning with additional words or to add context (by specifying implicit information).
 
-<div class="meaningful">
-<div>Pluto <span class="rel">[is]</span> planet</div>
-<div>Pluto <span class="rel">[rel "astronomy"]</span> </div>
-<div>Pluto <span class="rel">[rel "Solar System"]</span> </div>
-</div>
+> <pre>
+> Pluto <span class="rel">{is}</span> planet
+> Pluto <span class="rel">{rel "astronomy"}</span> 
+> Pluto <span class="rel">{rel "Solar System"}</span> </pre>
+> </pre>
 
 Please note, `implies "Solar System"` could not be precise enough as other meanings of `Pluto` are located in the Solar System too: for example, in mythology of nations, which live in the Solar System.
 
@@ -515,15 +515,15 @@ Please note, `implies "Solar System"` could not be precise enough as other meani
 
 In fact, similarity was already introduced at the previous step.
 
-<div class="meaningful">
-<div>Pluto <span class="rel">[is similar]</span> planet</div>
-</div>
+> <pre>
+> Pluto <span class="rel">{is similar}</span> planet
+> </pre>
 
 Usually `is` is undefined relation, which is widely used in natural language and which usually means `is similar`.
 
-<div class="meaningful">
-<div>Solar System <span class="rel">[is similar]</span> planetary system</div>
-</div>
+> <pre>
+> Solar System <span class="rel">{is similar}</span> planetary system
+> </pre>
 
 Statement of similarity is enough only in the cases, when we are coerced to use or constrained with vague similarity. Otherwise, we need to specify how exactly things or conceptions are similar more precisely. In general, it is hard to say where is a boundary between identification, similarity, abstraction, types, and other relations.
 
@@ -531,11 +531,11 @@ Statement of similarity is enough only in the cases, when we are coerced to use 
 
 Abstraction is rather "enhanced" type (or description) of similarity.
 
-<div class="meaningful">
-<div>The Solar System <span class="rel">is</span> the Sun and its planets.</div>
-<div>The Solar System <span class="rel">is</span> the gravitationally bound system comprising the Sun and the objects that orbit it, either directly or indirectly.</div>
-<div>The Solar System <span class="rel">is</span> is restricted with boundaries of the Oort cloud (a theoretical cloud of predominantly icy planetesimals believed to surround the Sun).</div>
-</div>
+> <pre>
+> The Solar System <span class="rel">is</span> the Sun and its planets.
+> The Solar System <span class="rel">is</span> the gravitationally bound system comprising the Sun and the objects that orbit it, either directly or indirectly.
+> The Solar System <span class="rel">is</span> is restricted with boundaries of the Oort cloud (a theoretical cloud of predominantly icy planetesimals believed to surround the Sun).
+> </pre>
 
 In all sentences `is` implies `abstracts`, that is, `the Solar System` word abstracts either (1) the Sun and the planets, or (2) the Sun and gravitationally bound objects, or (3) space(-time ?) inside the Oort cloud. As you can see, `abstracts` is advanced version of `is similar`: (1a) the first variant specifies the biggest objects of it, (2a) the second one specifies all objects by a template which were and will be a part of the Solar System, (3a) the third one specifies the Solar System as a part of space (but possibly not time). That is, the third definition implies geometrical border for both physical objects and vacuum (through which the Solar System comes in Galaxy).
 
@@ -545,18 +545,18 @@ The first definition also `abstracts` the second one but the third one is totall
 
 The previous example for the Solar System already has good example of a type of `the Solar system object` which may be rephrased so:
 
-<div class="meaningful">
-<div>The Solar System object <span class="rel">is</span> an object that gravitationally bound to the Sun and that orbits it, either directly or indirectly.</div>
-</div>
+> <pre>
+> The Solar System object <span class="rel">is</span> an object that gravitationally bound to the Sun and that orbits it, either directly or indirectly.
+> </pre>
 
 What we see here is an identifier on the left and a specification of the identifier on the right. The specification consists of conditions, which define boundaries of similarity. Please note, "type" could be both an "abstraction" (`The Solar System is the Sun and its planets`), which includes only actual similar object-actions, but also an "abstraction" of "abstraction" and include criteria of similarity, which were matched, are matched or will be matched by specific object-actions.
 
-<div class="meaningful">
-<div>Planet <span class="rel">is</span></div>
-<div class="indent">is in orbit around the Sun,</div>
-<div class="indent">has sufficient mass to assume hydrostatic equilibrium (a nearly round shape), and</div>
-<div class="indent">has "cleared the neighborhood" around its orbit.</div>
-</div>
+> <pre>
+> Planet <span class="rel">is</span>
+>   is in orbit around the Sun,
+>   has sufficient mass to assume hydrostatic equilibrium (a nearly round shape), and
+>   has "cleared the neighborhood" around its orbit.
+> </pre>
 
 Now, let us return to the Pluto. As you may know, the Pluto was deprived of this name and re-classified to "dwarf planet" because several objects (similar to the Pluto) were found near its orbit. This is real world example of what happens if some object does not satisfy criteria of similarity: in this case a new type is created by adding a new condition (here it is the third line about "clearing the neighborhood").
 
@@ -566,15 +566,15 @@ What's about mass production or, say, computer objects? Mass production objects 
 
 Types may include not only criteria of similarity for objects themselves but also criteria of similarity of their constituents.
 
-<div class="meaningful">
-<div>Planet <span class="rel">has</span> mass, atmosphere, and magnetosphere.</div>
-</div>
+> <pre>
+> Planet <span class="rel">has</span> mass, atmosphere, and magnetosphere.
+> </pre>
 
 Similarly "abstract" criteria like `the Sun and planets` may be specified by:
 
-<div class="meaningful">
-<div>The Solar System consists of the Sun, the planets (Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune) and their satellites, comets, asteroids, meteoroids, and the interplanetary medium.</div>
-</div>
+> <pre>
+> The Solar System consists of the Sun, the planets (Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune) and their satellites, comets, asteroids, meteoroids, and the interplanetary medium.
+> </pre>
 
 That is, the choice of "abstraction" or "specification" may be manyfold, depending on what is needed: completeness or consistency. As a extreme point of completeness you can imagine full catalogue of all known objects of the Solar System, which will the most precise description of it until a new object found. As a extreme point of consistency you can consider one line definition of the Solar System.
 

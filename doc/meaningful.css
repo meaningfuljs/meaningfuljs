@@ -4,8 +4,8 @@
 
 .meaningful {
 	padding: 5px;
-	font-size: 14px;
-	background-color: #b3e7ff;
+	font-size: 16px;
+	background-color: #66bbff;
 	border-style: dashed;
 	border-width: 2px;
 	font-weight: 500;
@@ -14,7 +14,7 @@
 .meaningful-question {
 	padding: 5px;
 	color: white;
-	font-size: 14px;
+	font-size: 16px;
 	background-color: #3399ff;
 	border-style: dashed;
 	border-width: 2px;

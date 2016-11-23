@@ -45,8 +45,8 @@
  * Constants
  *********************/
 
-	var SIGN_MU_BEGIN	= '[';
-	var SIGN_MU_END		= ']';
+	var SIGN_MU_BEGIN	= '{';
+	var SIGN_MU_END		= '}';
 	var SIGN_CLOSE		= '/';
 	var SIGN_REF		= '#';
 	var SIGN_INT_REF	= '##'; // internal ref
@@ -309,7 +309,7 @@
     LANG_MODS[REL_TIME   ] = mu('t'); // time
 
     // re
-    var simpleMeaningRe = /(\[.*?\])/;
+    var simpleMeaningRe = /(\{.*?\})/;
 	var refRe = /(\/?#\S*)\s*/;
 	//var refRe = /(\/?#[\d\w]+\/?)|("[\d\w\s]*")/;
     var simpleWordRe =/\s/;
@@ -1610,7 +1610,7 @@ function markup(text) {
 			return r;
 		}).join(' ');
 		//console.log(words);
-		// 2nd pass to replace partial markup, eg [is] instance [of] -> [is instance of]
+		// 2nd pass to replace partial markup, eg {is} instance {of} -> {is instance of}
 		_.each(_.keys(REL_2ND_PASS_MARKUP), function(s) {
 			result = result.replace(s, REL_2ND_PASS_MARKUP[s]);
 		});
@@ -1669,7 +1669,7 @@ function query(request, opts) {
 
 	function getTheSame(repo2, src) {
 		return _.reduce(index.filter(src, rel2Mstr(REL_IS_SAME)), function(r, same) {
-			same = repo2[same[2]]; // would work for something like "A [is the same] [/] A1 [and] A2"
+			same = repo2[same[2]]; // would work for something like "A {is similar} {/} A1 {and} A2"
 			if (same[rel2Mstr(REL_INCLUDE)])
 				same = same[rel2Mstr(REL_INCLUDE)];
 			return r.concat(
@@ -2271,10 +2271,10 @@ function uiBuild(jQuery, opts) {
 
 	/*
 	joinMeaning('', 'val')						->
-	joinMeaning('[#1]', '')						-> [#1]
-	joinMeaning('[#1]', 'val')					-> [/]val[/#1]
-	joinMeaning('[has value] value', 'prop')	-> prop [has value] value
-	joinMeaning('obj [has property]', 'prop')	-> obj [has property] prop
+	joinMeaning('{#1}', '')						-> {#1}
+	joinMeaning('{#1}', 'val')					-> {/}val{/#1}
+	joinMeaning('{has value} value', 'prop')	-> prop {has value} value
+	joinMeaning('obj {has property}', 'prop')	-> obj {has property} prop
 	*/
 	function joinMeaning(meaning, value) {
 		if (meaning && value) {
@@ -2388,7 +2388,7 @@ function uiInit() {
     		.css({ margin: '0 4px 0 4px' })
 	   		.attr('size', 50)
     		.appendTo($(cp))
-    		.attr('placeholder', 'What[_] is[] planet');
+    		.attr('placeholder', 'What{_} is{} planet');
     	var queryBtn = document.createElement('button');
 		$(queryBtn)
 			.addClass('btn btn-primary')

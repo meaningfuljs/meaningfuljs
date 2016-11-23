@@ -35,7 +35,7 @@ describe('Meaningful.js', function() {
 		it('retrieves planet instances', function() {
 			meaningful.uiBuild(window.$);
 			expect(meaningful.getRepo()).not.toBe(null);
-			var result = meaningful.query('what[_] [is] planet');
+			var result = meaningful.query('what{_} {is} planet');
 			expect(result).toEqual([
 				'Mercury',
 				'Venus',
@@ -75,15 +75,15 @@ describe('Meaningful.js', function() {
 			meaningful.uiBuild(window.$);
 			expect(meaningful.getRepo()).not.toBe(null);
 			var userRepo = [
-				'my computer [is] computer',
-				_.template('my computer [has #1] <%- freq %> [#2] [@math units of] GHz [/]processor[/#1] [has property frequency] [has value #2]'),
-				_.template('my computer [has #1] <%- ram %> [#2] [@math units of] GB [/]RAM[/#1] [has property volume] [has value #2]'),
-				_.template('my computer [has #1] <%- hdd %> [#2] [@math units of] GB [/]hard disk[/#1] [has property space] [has value #2]')
+				'my computer {is} computer',
+				_.template('my computer {has #1} <%- freq %> {#2} {@math units of} GHz {/}processor{/#1} {has property frequency} {has value #2}'),
+				_.template('my computer {has #1} <%- ram %> {#2} {@math units of} GB {/}RAM{/#1} {has property volume} {has value #2}'),
+				_.template('my computer {has #1} <%- hdd %> {#2} {@math units of} GB {/}hard disk{/#1} {has property space} {has value #2}')
 			];
 			var userRepo1 = meaningful.build([ userRepo[0], userRepo[1]({ freq: 1 }), userRepo[2]({ ram: 2 }), userRepo[3]({ hdd: 200 }) ], { repo: {} });
 			var userRepo2 = meaningful.build([ userRepo[0], userRepo[1]({ freq: 3 }), userRepo[2]({ ram: 8 }), userRepo[3]({ hdd: 200 }) ], { repo: {} });
-			expect(meaningful.query('Can[_ @able] I [/]run[/#1 does what #2 has property #3] [/]OS_like_OS[/#2] on [/]my computer[/#3]', { userRepo:  userRepo1 })).toEqual(false);
-			expect(meaningful.query('Can[_ @able] I [/]run[/#1 does what #2 has property #3] [/]OS_like_OS[/#2] on [/]my computer[/#3]', { userRepo:  userRepo2 })).toEqual(true);
+			expect(meaningful.query('Can{_ @able} I {/}run{/#1 does what #2 has property #3} {/}OS_like_OS{/#2} on {/}my computer{/#3}', { userRepo:  userRepo1 })).toEqual(false);
+			expect(meaningful.query('Can{_ @able} I {/}run{/#1 does what #2 has property #3} {/}OS_like_OS{/#2} on {/}my computer{/#3}', { userRepo:  userRepo2 })).toEqual(true);
 		});
 
 	});

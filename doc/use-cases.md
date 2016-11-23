@@ -10,14 +10,14 @@ Look at this HTML:
 
 ```
 <table meaning="planet">
-	<thead meaning="planet [has property]">
+	<thead meaning="planet {has property}">
 		<tr>
-			<th meaning="planet [has id]">Name</th>
+			<th meaning="planet {has id}">Name</th>
 			<th>Diameter</th>
 			...
 		</tr>
 	</thead>
-	<tbody meaning="[is instance of] planet">
+	<tbody meaning="{is instance of} planet">
 		<tr>
 			<td>Mercury</td>
 			<td>4,878 km</td>
@@ -30,15 +30,15 @@ Look at this HTML:
 
 Look at meaningful markup which is the result of such html:
 
-<div class="meaningful">
-Mercury <span class="rel">[has property]</span> diameter <span class="rel">[has value]</span> 4,878 km
-</div>
+> <pre>
+> Mercury <span class="rel">{has property}</span> diameter <span class="rel">{has value}</span> 4,878 km
+> </pre>
 
 And look on question which will give the correct answer:
 
-<div class="meaningful-question">
-What <span class="rel">[_] [is value of]</span> diameter <span class="rel">[of]</span> Mercury
-</div>
+> <pre>
+> What <span class="rel">{_} {is value of}</span> diameter <span class="rel">{of}</span> Mercury
+> </pre>
 
 Isn't that simple? Yes, of course, I know contemporary search engines already can answer such questions. But it concerns only very general facts. Try to ask them `When did solar eclipse occur the last time in my country?` even if you register related information in a web page.
 
@@ -62,38 +62,38 @@ Imagine we have OS_like_OS operating system, which has UI with following compone
 
 As you may guess all this can be described with simplified markup:
 
-<div class="meaningful">
-<div>OS_like_OS desktop <span class="rel">[is property of]</span> mouse right click <span class="rel">[causes]</span> context menu</div>
-<div>Properties key press <span class="rel">[causes]</span> context menu</div>
-<br/>
-<div>context menu <span class="rel">[has]</span> Properties item <span class="rel">[causes]</span> Desktop properties dialog</div>
-<div>Desktop color picker <span class="rel">[causes]</span> Desktop color</div>
-<br/>
-<div>/etc/ui.cfg <span class="rel">[has part]</span> desktop section <span class="rel">[has property]</span> color attribute <span class="rel">[causes]</span> Desktop color</div>
-<div>/etc/ui.cfg <span class="rel">[has part]</span> desktop section <span class="rel">[has property]</span> color attribute <span class="rel">[causes]</span> Desktop color</div>
-<div>/etc/ui.cfg <span class="rel">[has part]</span> desktop section <span class="rel">[has property]</span> pattern attribute <span class="rel">[causes]</span> Desktop pattern</div>
-<div>/etc/ui.cfg <span class="rel">[has part]</span> desktop section <span class="rel">[has property]</span> color-enabled attribute <span class="rel">[is condition of]</span></div>
-<div class="indent">Desktop properties dialog Appearance tab </div>
-<br/>
-<div>Desktop properties dialog Appearance tab <span class="rel">[is the same]</span></div>
-<div class="indent"><span class="rel">[/]</span> Desktop properties dialog <span class="rel">[has]</span> Appearance tab <span class="rel">[/#1]</span></div>
-<div>OS_like_OS desktop <span class="rel">[is the same]</span></div>
-<div class="indent"><span class="rel">[/]</span> OS_like_OS <span class="rel">[has]</span> desktop <span class="rel">[/#1]</span></div>
-<div>Desktop color picker <span class="rel">[is the same]</span></div>
-<div class="indent"><span class="rel">[/]</span> Desktop properties dialog Appearance tab <span class="rel">[has]</span> color input <span class="rel">[causes]</span> color picker <span class="rel">[/#2]</span></div>
-<div>Desktop color <span class="rel">[is the same]</span></div>
-<div class="indent"><span class="rel">[/]</span> OS_like_OS desktop <span class="rel">[has property]</span> color <span class="rel">[/#3]</span></div>
-<div>Desktop pattern <span class="rel">[is the same]</span></div>
-<div class="indent"><span class="rel">[/]</span> OS_like_OS desktop <span class="rel">[has property]</span> pattern <span class="rel">[/#4]</span></div>
-<div>Desktop appearance <span class="rel">[is the same]</span></div>
-<div class="indent"><span class="rel">[/]</span> Desktop color <span class="rel">[and]</span> Desktop pattern <span class="rel">[and]</span> Desktop picture <span class="rel">[/#5]</span></div>
-</div>
+> <pre>
+> OS_like_OS desktop <span class="rel">{is property of}</span> mouse right click <span class="rel">{causes}</span> context menu
+> Properties key press <span class="rel">{causes}</span> context menu
+> 
+> context menu <span class="rel">{has}</span> Properties item <span class="rel">{causes}</span> Desktop properties dialog
+> Desktop color picker <span class="rel">{causes}</span> Desktop color
+> 
+> /etc/ui.cfg <span class="rel">{has part}</span> desktop section <span class="rel">{has property}</span> color attribute <span class="rel">{causes}</span> Desktop color
+> /etc/ui.cfg <span class="rel">{has part}</span> desktop section <span class="rel">{has property}</span> color attribute <span class="rel">{causes}</span> Desktop color
+> /etc/ui.cfg <span class="rel">{has part}</span> desktop section <span class="rel">{has property}</span> pattern attribute <span class="rel">{causes}</span> Desktop pattern
+> /etc/ui.cfg <span class="rel">{has part}</span> desktop section <span class="rel">{has property}</span> color-enabled attribute <span class="rel">{is condition of}</span>
+>   Desktop properties dialog Appearance tab 
+> 
+> Desktop properties dialog Appearance tab <span class="rel">{is similar}</span>
+>   <span class="rel">{/}</span> Desktop properties dialog <span class="rel">{has}</span> Appearance tab <span class="rel">{/#1}</span>
+> OS_like_OS desktop <span class="rel">{is similar}</span>
+>   <span class="rel">{/}</span> OS_like_OS <span class="rel">{has}</span> desktop <span class="rel">{/#1}</span>
+> Desktop color picker <span class="rel">{is similar}</span>
+>   <span class="rel">{/}</span> Desktop properties dialog Appearance tab <span class="rel">{has}</span> color input <span class="rel">{causes}</span> color picker <span class="rel">{/#2}</span>
+> Desktop color <span class="rel">{is similar}</span>
+>   <span class="rel">{/}</span> OS_like_OS desktop <span class="rel">{has property}</span> color <span class="rel">{/#3}</span>
+> Desktop pattern <span class="rel">{is similar}</span>
+>   <span class="rel">{/}</span> OS_like_OS desktop <span class="rel">{has property}</span> pattern <span class="rel">{/#4}</span>
+> Desktop appearance <span class="rel">{is similar}</span>
+>   <span class="rel">{/}</span> Desktop color <span class="rel">{and}</span> Desktop pattern <span class="rel">{and}</span> Desktop picture <span class="rel">{/#5}</span>
+> </pre>
 
 Now we can ask some questions (it should be read as `How to change desktop color?`):
 
-<div class="meaningful-question">
-how <span class="rel">[_ @cause]</span> Desktop color
-</div>
+> <pre>
+> how <span class="rel">{_ @cause}</span> Desktop color
+> </pre>
 
 And answer, which should be read as:
 * `Click mouse right click or press Properties key to make a context menu appear.` 
@@ -105,37 +105,37 @@ or
 
 * `Change color attribute in desktop section of /etc/ui.cfg`
 
-<div class="meaningful">
-<div>[</div>
-<div class="indent">[</div>
-<div class="indent2">[ 'mouse right click', '<span class="rel">[causes]</span>', 'context menu' ],</div>
-<div class="indent2">[ 'Properties key press', '<span class="rel">[causes]</span>', 'context menu'],</div>
-<div class="indent2">'context menu', '<span class="rel">[has]</span>',</div>
-<div class="indent2">'Properties item', '<span class="rel">[causes]</span>',</div>
-<div class="indent2">'Desktop properties dialog', '<span class="rel">[has]</span>',</div>
-<div class="indent2">'Appearance tab', ['<span class="rel">[has condition]</span>', '/etc/ui.cfg', '<span class="rel">[has part]</span>', 'desktop section',</div>
-<div class="indent3">'<span class="rel">[has property]</span>', 'color-enabled attribute' ],</div>
-<div class="indent2">'[has]',</div>
-<div class="indent2">'color input', '<span class="rel">[causes]</span>',</div> 
-<div class="indent2">'color picker'</div>
-<div class="indent">],</div>
-<div class="indent">[ '/etc/ui.cfg', '<span class="rel">[has part]</span>', 'desktop section', '<span class="rel">[has property]</span>', 'color attribute' ]</div>
-<div>]</div>
-</div>
+> <pre>
+> [
+>   [
+>     [ 'mouse right click', '<span class="rel">{causes}</span>', 'context menu' ],
+>     [ 'Properties key press', '<span class="rel">{causes}</span>', 'context menu'],
+>     'context menu', '<span class="rel">{has}</span>',
+>     'Properties item', '<span class="rel">{causes}</span>',
+>     'Desktop properties dialog', '<span class="rel">{has}</span>',
+>     'Appearance tab', ['<span class="rel">{has condition}</span>', '/etc/ui.cfg', '<span class="rel">{has part}</span>', 'desktop section',
+>       '<span class="rel">{has property}</span>', 'color-enabled attribute' ],
+>     '{has}',
+>     'color input', '<span class="rel">{causes}</span>', 
+>     'color picker'
+>   ],
+>   [ '/etc/ui.cfg', '<span class="rel">{has part}</span>', 'desktop section', '<span class="rel">{has property}</span>', 'color attribute' ]
+> ]
+> </pre>
 
 `How to change desktop appearance?`:
 		
-<div class="meaningful-question">
-how <span class="rel">[_ @cause]</span> Desktop appearance
-</div>
+> <pre>
+> how <span class="rel">{_ @cause}</span> Desktop appearance
+> </pre>
 
 And answer only for configuration files (UI variants omitted for brevity):
 
-<div class="meaningful">
-<div>[</div>
-<div class="indent">[ '/etc/ui.cfg', '<span class="rel">[has part]</span>', 'desktop section', '<span class="rel">[has property]</span>', 'color attribute' ],</div>
-<div class="indent">[ '/etc/ui.cfg', '<span class="rel">[has part]</span>', 'desktop section', '<span class="rel">[has property]</span>',	'pattern attribute' ]</div>
-<div>]</div>
-</div>
+> <pre>
+> [
+>   [ '/etc/ui.cfg', '<span class="rel">{has part}</span>', 'desktop section', '<span class="rel">{has property}</span>', 'color attribute' ],
+>   [ '/etc/ui.cfg', '<span class="rel">{has part}</span>', 'desktop section', '<span class="rel">{has property}</span>',	'pattern attribute' ]
+> ]
+> </pre> 
 
 In general, what you see is how documentation should work when it is not just a pile of documents but a complex of object-action-condition-cause-effect-relations. Of course, examples from above are quite simple but the next step of query could be `How to change desktop appearance if I upgraded OS_like_OS to 0.3 version?`, etc.

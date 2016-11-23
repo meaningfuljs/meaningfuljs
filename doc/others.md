@@ -36,23 +36,23 @@ With the start of computer era, hierarchies and taxonomies were considered as ob
 
 At first let us look for variants of categorizing `Venus` planet:
 
-<div class="meaningful">
-<div>Kids and Teens: School Time: Science: Astronomy and Space: Solar System: Venus</div>
-<div>Science: Astronomy: Solar System: Planets: Venus</div>
-<div>Science: Astronomy and Space: Solar System: Venus</div>
-<div>Science: Technology: Space: Missions: Unmanned: Venus</div>
-<div>Universe: Galaxy: Solar System: Venus</div>
-<div>Universe: Observable universe: Laniakea Supercluster: Virgo Supercluster: Local Group: Milky Way subgroup:</div>
-	<div class="indent">Milky Way: Orion Arm: Gould Belt: Local Bubble: Local Interstellar Cloud:</div>
-	<div class="indent">Solar System: Terrestial planets: Venus</div>
-</div>
+> <pre>
+> Kids and Teens: School Time: Science: Astronomy and Space: Solar System: Venus
+> Science: Astronomy: Solar System: Planets: Venus
+> Science: Astronomy and Space: Solar System: Venus
+> Science: Technology: Space: Missions: Unmanned: Venus
+> Universe: Galaxy: Solar System: Venus
+> Universe: Observable universe: Laniakea Supercluster: Virgo Supercluster: Local Group: Milky Way subgroup:
+> 	Milky Way: Orion Arm: Gould Belt: Local Bubble: Local Interstellar Cloud:
+> 	Solar System: Terrestial planets: Venus
+> </pre>
 
 All variants seems logical but some variants are too lengthy, some overlaps with others, some just have slightly different meaning. The main problem here is you need to know exact path and follow it with several clicks. Of course, search in directory partially alleviated this but search engines made this completely obsolete. But can/should we drop hierarchies/taxonomies/classification alltogether? Try to train your classification aptitudes on this example:
 
-<div class="meaningful">
-<div>history of Venus chemistry research in 20th century</div>
-<div>history of Venus chemistry in 20th century</div>
-</div>
+> <pre>
+> history of Venus chemistry research in 20th century
+> history of Venus chemistry in 20th century
+> </pre>
 
 * For the first sentence, classification could be `Science: History of science: History of astronomy: History of Venus research: History of Venus chemistry research: History of Venus chemistry research in 20th century`.
 * For the second, classification could be `Solar System: Venus: Chemistry: Changes in 20th century`.
