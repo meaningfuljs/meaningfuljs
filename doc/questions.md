@@ -55,7 +55,7 @@ What does
 `What does` question is marked as "action" kind and looks for relations linked with "does" or "is done". Applied to `Humans live on Earth for thousand years` it produces `live` answer.
 
 > <pre>
-> what do<span class="rel">{_ @action} {has property #1 done by #2} {#2/}</span>humans<span class="rel">{/#2}</span> do on <span class="rel">{#1/}</span>Earth<span class="rel">{/#1}</span> <br/>
+> what do<span class="rel">{_ @action} {has property #1 done by #2} {#2/}</span>humans<span class="rel">{/#2}</span> do on <span class="rel">{#1/}</span>Earth<span class="rel">{/#1}</span>
 > </pre>
 
 Where
@@ -109,9 +109,9 @@ How
 `How` is cause-effect question in this sample (`how` question may also relate to "manner" kind of questions). Imagine OS_like_OS installation is described with 4 items, which indicate "cause" of OS_like_OS install.
 
 > <pre>
-> install <span class="rel">{does what}</span> OS_like_OS <span class="rel">{caused by}</span> Download the bootable image from our site <br/>
-> install <span class="rel">{does what}</span> OS_like_OS <span class="rel">{caused by}</span> Write it to a USB drive or an optical disk <br/>
-> install <span class="rel">{does what}</span> OS_like_OS <span class="rel">{caused by}</span> Boot your computer with it <br/>
+> install <span class="rel">{does what}</span> OS_like_OS <span class="rel">{caused by}</span> Download the bootable image from our site
+> install <span class="rel">{does what}</span> OS_like_OS <span class="rel">{caused by}</span> Write it to a USB drive or an optical disk
+> install <span class="rel">{does what}</span> OS_like_OS <span class="rel">{caused by}</span> Boot your computer with it
 > install <span class="rel">{does what}</span> OS_like_OS <span class="rel">{caused by}</span> Follow instructions on the screen
 > </pre>
 
@@ -136,23 +136,23 @@ Can
 Imagine we have a list of OS_like_OS requirements:
 
 > <pre>
-> OS_like_OS <span class="rel">{is done}</span> run <span class="rel">{has property}</span> on <span class="rel">{/}</span>computer <span class="rel">{/#c has #1}</span> with <br/>
-> 	<span class="indent"><span class="rel">{/}</span>1 <span class="rel">{#2} {@math greater than} {@math units of}</span> GHz<span class="rel">{#3}</span> or faster <span class="rel">{/}</span></span> <br/>
-> 	<span class="indent">processor<span class="rel">{/#1} {has property frequency} {has condition #2}</span></span> <br/>
-> OS_like_OS <span class="rel">{is done}</span> run <span class="rel">{has property}</span> on <span class="rel">{/}</span>computer <span class="rel">{/#c has #1}</span> with <br/>
-> 	<span class="indent"><span class="rel">{/}</span>4 <span class="rel">{#2} {@math greater than} {@math units of}</span> GB <span class="rel">{#1/}</span></span> <br/>
-> 	<span class="indent">RAM <span class="rel">{/#1} {has property volume} {has condition #2}</span></span> <br/>
-> OS_like_OS <span class="rel">{is done}</span> run <span class="rel">{has property}</span> on <span class="rel">{/}</span>computer <span class="rel">{/#c has #1}</span> with <br/>
-> 	<span class="indent"><span class="rel">{/}</span>200 <span class="rel">{#2} {@math greater than} {@math units of}</span> MB <span class="rel">{/}</span></span> <br/>
+> OS_like_OS <span class="rel">{is done}</span> run <span class="rel">{has property}</span> on <span class="rel">{/}</span>computer <span class="rel">{/#c has #1}</span> with
+> 	<span class="indent"><span class="rel">{/}</span>1 <span class="rel">{#2} {@math greater than} {@math units of}</span> GHz<span class="rel">{#3}</span> or faster <span class="rel">{/}</span></span>
+> 	<span class="indent">processor<span class="rel">{/#1} {has property frequency} {has condition #2}</span></span>
+> OS_like_OS <span class="rel">{is done}</span> run <span class="rel">{has property}</span> on <span class="rel">{/}</span>computer <span class="rel">{/#c has #1}</span> with
+> 	<span class="indent"><span class="rel">{/}</span>4 <span class="rel">{#2} {@math greater than} {@math units of}</span> GB <span class="rel">{#1/}</span></span>
+> 	<span class="indent">RAM <span class="rel">{/#1} {has property volume} {has condition #2}</span></span>
+> OS_like_OS <span class="rel">{is done}</span> run <span class="rel">{has property}</span> on <span class="rel">{/}</span>computer <span class="rel">{/#c has #1}</span> with
+> 	<span class="indent"><span class="rel">{/}</span>200 <span class="rel">{#2} {@math greater than} {@math units of}</span> MB <span class="rel">{/}</span></span>
 > 	<span class="indent">hard disk<span class="rel">{/#1} {has property}</span> space <span class="rel">{has condition #2}</span></span>
 > </pre>
 
 And a specification for your computer:
 
 > <pre>
-> my computer <span class="rel">{is}</span> computer <br/>
-> my computer <span class="rel">{has #1}</span> 2 <span class="rel">{#2} {@math units of}</span> GHz <span class="rel">{/}</span>processor<span class="rel">{/#1} {has property frequency} {has value#2}</span> <br/>
-> my computer <span class="rel">{has #1}</span> 8 <span class="rel">{#2} {@math units of}</span> GB <span class="rel">{/}</span>RAM<span class="rel">{/#1} {has property volume} {has value#2}</span> <br/>
+> my computer <span class="rel">{is}</span> computer
+> my computer <span class="rel">{has #1}</span> 2 <span class="rel">{#2} {@math units of}</span> GHz <span class="rel">{/}</span>processor<span class="rel">{/#1} {has property frequency} {has value#2}</span>
+> my computer <span class="rel">{has #1}</span> 8 <span class="rel">{#2} {@math units of}</span> GB <span class="rel">{/}</span>RAM<span class="rel">{/#1} {has property volume} {has value#2}</span>
 > my computer <span class="rel">{has #1}</span> 500 <span class="rel">{#2} {@math units of}</span> GB <span class="rel">{/}</span>hard disk<span class="rel">{/#1} {has property space} {has value#2}</span>
 > </pre>
 
