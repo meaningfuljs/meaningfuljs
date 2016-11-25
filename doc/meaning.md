@@ -6,7 +6,7 @@ What is meaning?
 
 Meaning is a complex of relations, which is expressed through identifiers and which corresponds to a complex of object-actions or relations (abstract object-actions). The process of meaning recognition is finding similarity between real and/or abstract object-actions through identification, abstraction, specification, classification, etc.
 
-![Meaning](meaning1.png "Meaning")
+![Meaning](img/meaning1.png "Meaning")
 
 ### Example 1
 
@@ -16,7 +16,7 @@ Meaning is a complex of relations, which is expressed through identifiers and wh
 4.	`Solar system` maps to Alice's model of `Solar system`, which is understood by her as `Venus and Earth`.
 5.	Alice reads books on astronomy and her relations of both `Earth` and `Venus` refers to astronomy data. Whereas Bob knows `Venus` exists but no more than that.
 
-![Meaning](meaning2.png "Meaning")
+![Meaning](img/meaning2.png "Meaning")
 
 As you may notice, `Solar system` identifier can be understood differently by parties. But the identifier allows them to communicate about Solar system. Even though `Solar system` has different meaning for Alice and Bob, it has common part as a reference to a real Solar system.
 
@@ -33,7 +33,7 @@ A few definitions of logic:
 3.	Logic is a tool to develop reasonable conclusions based on a given set of data.
 4.	Logic is the study of reasoning, or the study of the principles and criteria of valid inference and demonstration.
 
-![Meaning](meaning3.png "Meaning")
+![Meaning](img/meaning3.png "Meaning")
 
 As we have no real object, nobody may be sure which definition is adequate because:
 
