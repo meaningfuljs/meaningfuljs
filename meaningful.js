@@ -27,6 +27,7 @@
 		ask: ask,
 		query: query,
 		execute: execute,
+		register: register,
 		getRepo: getRepo,
 		reset: reset,
 		config: config
@@ -126,6 +127,8 @@
 	var REL_EXT			= 1000;
 	var REL_MATH        = 1001; // extensions
 
+	var REL_FUNC		= 2000;
+
 /*********************
  * Relation constants
  *********************/
@@ -194,6 +197,8 @@
 	REL_ATTRS[REL_WHICH      ] = { bstring: 'which', rev: REL_WHICH, model: '@which' };
 
 	REL_ATTRS[REL_MATH       ] = { bstring: '@math', rev: REL_MATH, model: '@math' };
+
+	REL_ATTRS[REL_FUNC       ] = { bstring: '@func', rev: REL_MATH, model: '@func' };
 
 	var REL_STRING_INDEX = {};
 
@@ -408,6 +413,27 @@
 		return rel && rel.length > 0 && rel.charAt(0) === SIGN_AT;
 	}
 
+	function getUnknownAtRel(rel) {
+		if (isUnknown(rel)) {
+			var r = unmu(rel).substring(1).trimLeft();
+			return getAtStr(r);
+		}
+	}
+
+	function getUnknownAtStr(rel) {
+		if (isUnknown(rel)) {
+			var r = unmu(rel).substring(1).trimLeft();
+			r = unmu(r).split(' ');
+			return r.length > 1 ? r[1] : undefined;
+		}
+	}
+
+	function getUnknownFuncStr(rel) {
+		if (isUnknown(rel) && getUnknownAtRel(rel) === REL_FUNC) {
+			return getUnknownAtStr(rel);
+		}
+	}
+
 	function getAtRel(rel) {
 		if (isAtRel(rel))
 			return REL_STRING_INDEX[mu(unmu(rel).split(' ')[0])].rel;
@@ -517,7 +543,7 @@
 		return _.reduce(relsToFind, function(result, rel) {
 			if (result.length === 0) {
 				var v = findRelRefs(rels, REL_ATTRS[rel].string);
-				console.log('->', v);
+				//console.log('->', v);
 				if (v.length > 0)
 					return [rel, v];
 			}
@@ -1640,21 +1666,24 @@ function ask(request, opts) {
 function query(request, opts) {
 	opts = opts || {};
 	opts.log = opts.log || (glob ? glob.log : {}) || {};
+	var optsrepo = opts.repo;
 	opts.repo = {};
 	opts.index = new Index();
 	var qrepo = build(request, opts);
 	debug(opts.log.query, 'query', request);// ->', JSON.stringify(qrepo)/*, 'opts:', JSON.stringify(opts)*/);
 	var first = _.first(_.keys(qrepo));
 	var isFirstUnknown = first && isUnknown(first);
-	var result = queryLevel(0, isFirstUnknown && _ismod(first, REL_ABLE) ? qrepo[first] : qrepo, repo);
+	var result = queryLevel(0, isFirstUnknown && _ismod(first, REL_ABLE) ? qrepo[first] : qrepo, optsrepo ? optsrepo : repo);
 	textCache.fill(result);
+	result = _.isArray(result) ? _.filter(result, function(r) { return _.isString(r) ? !isUnknown(r) || getUnknownFuncStr(r) : r; }) : result;
+	result = queryFunc(result, qrepo, opts);
 	debug(opts.log.query, 'query ->', JSON.stringify(result), '\n');
 	return result;
 
 	function queryLevel(level, qrepo2, repo2) {
 		debug(opts.log.query, tab(level) + 'queryLevel:', '\n', tab(level + 1) + 'q:', JSON.stringify(qrepo2), '\n', tab(level + 1) + 'r:', JSON.stringify(repo2));
 		var result1 = _.reduce(_.keys(qrepo2), function(result1, src) {
-			result1 = queryId(level, src, repo2) ? querySrc(level, qrepo2, repo2, src, undefined, result1) : result1;
+			result1 = queryId(level, src, repo2) ? querySrc(level, qrepo2, repo2, src, undefined, result1) : [];
 			var same = getTheSame(repo2, src);
 			if (same && same.length > 0)
 				result1 = _.reduce(same, function(r, same) {
@@ -1752,7 +1781,7 @@ function query(request, opts) {
 			if (simil.length > 0)
 				result = _.reduce(simil, function(r, el) { return _.isString(el) ? r.concat(el) : r.concat(el[rel2Mstr(REL_INCLUDE)]); }, []);
 		}
-		debug(opts.log.query, tab(level + 1) + 'queryRel:', id, rel, dests, '->', JSON.stringify(result));
+		debug(opts.log.query, tab(level + 1) + 'queryRel:', id, rel, JSON.stringify(dests), '->', JSON.stringify(result));
 		return result;
 	}
 
@@ -1782,7 +1811,8 @@ function query(request, opts) {
 				//return keyv(qv) === keyv(dest) || isUnknown(keyv(dest)) ? queryLevel(level + 2, dest, qv) : result4;
 				if (keyv(qv) === keyv(dest) || isUnknown(keyv(dest))) {
 					var q = queryLevel(level + 2, dest, qv);
-					return typeof q === 'boolean' || typeof result4 === 'boolean' ? q : (q ? result4.concat(q) : result4);
+					//return typeof q === 'boolean' || typeof result4 === 'boolean' ? q : (q ? result4.concat(q) : result4);
+					return typeof q === 'boolean' || typeof result4 === 'boolean' ? q : (q ? _.union(result4, q) : result4);
 				}
 				return result4;
 			}, result);
@@ -1800,7 +1830,7 @@ function query(request, opts) {
 				var urvIs = urv[REL_ATTRS[REL_IS].model];
 				if (urvIs && _.contains(urvIs, dest)) { // check if keyv(qv) === dest
 					urepo[keyv(qv)] = urepo[dest];
-					result = queryLevel(level, qv, urepo);
+					result = queryLevel(level, qv, urepo, opts);
 				}
 			});
 		debug(opts.log.query, tab(level) + 'queryUserRepo:', dest, '=>', result);
@@ -2076,6 +2106,66 @@ function execute(string, opts) {
 		}
 	}
 
+}
+
+/*********************
+ * Function registry part
+ *********************/
+
+var funcRegistry = {};
+
+function register(options) {
+	if (options && options.question && options.func && typeof options.func === 'function') {
+		options.repo = build([ options.question ], { repo: {} });
+		// find if question has func reference
+		_.each(_.keys(options.repo), function(k) {
+			var funcKey = getUnknownFuncStr(k);
+			// and put into func registry
+			if (funcKey)
+				funcRegistry[funcKey] = options;
+		});
+		// now put into the base repo
+		build([ options.question ]);
+	}
+}
+
+function whatIs(id, opts) {
+	var w = query('what{_} {is} ' + id, opts);
+	// we imply that two recursion levels will be enough: Jupiter {is} planet, planet {is} ball
+	_.each(w, function(we) { w = _.union(w, query('what{_} {is} ' + we)); });
+	return w;
+}
+
+function whatIsOf(w, key, result, opts) {
+	var r = whatIs(key + ' {of} ' + w, opts);
+	return r ? r : result;
+}
+
+function queryFunc(result, qrepo, opts) {
+	return _.isArray(result) ? _.map(result, function(r) {
+		var funcKey = _.isString(r) ? getUnknownFuncStr(r) : undefined;
+		if (funcKey && funcRegistry[funcKey] && funcRegistry[funcKey].func && typeof funcRegistry[funcKey].func === 'function') {
+			debug(opts.log.query, '\tqueryFunc', result, funcKey, '\n\t\tr:', JSON.stringify(funcRegistry[funcKey].repo), '\n\t\tq:', JSON.stringify(qrepo));
+			//var whatis = _.map(_.keys(qrepo), function(qk) { return isUnknown(qk) ? undefined : (_.indexOf(_.keys(qrepo), qk) === -1 ? [qk, whatIs(qk)] : [qk, qk]); });
+			var whatis = _.map(_.keys(qrepo), function(qk) { return isUnknown(qk) ? undefined : [qk, whatIs(qk)]; });
+			var args = _.map(funcRegistry[funcKey].input, function(ik) {
+				var result = _.reduce(whatis, function(result, w) {
+					if (_.indexOf(w[1], ik.name) !== -1)
+						return w[0];
+					else {
+						var r2 = whatIsOf(w[0], ik.name, result, { repo: qrepo });
+						return r2 ? r2 : whatIsOf(w[0], ik.name, result);
+						//return whatIsOf(w[0], ik.name, result);
+					}
+				})
+				return ik.func ? ik.func(result) : result;
+			});
+			debug(opts.log.query, '\tqueryFunc', /*_.keys(qrepo), whatis,*/ args);
+			var funcResult = funcRegistry[funcKey].func.apply(this, args);
+			return funcRegistry[funcKey].output ? funcRegistry[funcKey].output(funcResult) : funcResult;
+		}
+		return r;
+	}) : result;
 }
 
 /*********************
