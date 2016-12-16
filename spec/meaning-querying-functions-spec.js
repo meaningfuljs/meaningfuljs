@@ -22,7 +22,7 @@ describe('Meaningful.js', function() {
 	it('queries getBallVolume and getDiameter function', function() {
 		meaningful.register({
 			func: getBallVolume,
-			question: 'What {_ @func getBallVolume} {is} volume {of} ball',
+			question: 'What {_} {is} volume {of} ball',
 			input: [
 				{ name: 'diameter' }
 			]
@@ -33,7 +33,7 @@ describe('Meaningful.js', function() {
 	it('queries getDiameter function', function() {
 		meaningful.register({
 			func: planet.getPlanet,
-			question: 'What {_ @func planet.getDiameter} {is} diameter {of} planet',
+			question: 'What {_} {is} diameter {of} planet',
 			input: [
 				{ name: 'planet', func: function(planetName) { return planetName ? planetName.toLowerCase() : undefined; } }
 			],
@@ -47,7 +47,7 @@ describe('Meaningful.js', function() {
 
 		meaningful.register({
 			func: planet.getPlanet,
-			question: 'What {_ @func planet.getDiameter} {is} diameter {of} planet',
+			question: 'What {_} {is} diameter {of} planet',
 			input: [
 				{ name: 'planet', func: function(planetName) { return planetName ? planetName.toLowerCase() : undefined; } }
 			],
@@ -56,7 +56,7 @@ describe('Meaningful.js', function() {
 
 		meaningful.register({
 			func: getBallVolume,
-			question: 'What {_ @func getBallVolume} {is} volume {of} ball',
+			question: 'What {_} {is} volume {of} ball',
 			input: [
 				{ name: 'diameter' }
 			]

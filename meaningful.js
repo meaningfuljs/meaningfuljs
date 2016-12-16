@@ -2114,8 +2114,15 @@ function execute(string, opts) {
 
 var funcRegistry = {};
 
+var tmpFuncRef = (function() {
+    var i = 0;
+    return function() { i++; return 'func#' + i; };
+})();
+
 function register(options) {
 	if (options && options.question && options.func && typeof options.func === 'function') {
+		options.funcName = options.func.name || tmpFuncRef();
+		options.question = options.question.replace('{_}', '{_ @func ' + options.funcName + '}');
 		options.repo = build([ options.question ], { repo: {} });
 		// find if question has func reference
 		_.each(_.keys(options.repo), function(k) {

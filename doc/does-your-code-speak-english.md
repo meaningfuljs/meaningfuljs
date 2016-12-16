@@ -41,7 +41,7 @@ Human-readable natural language identifiers for speakers in most cases require n
 This significantly differs from what we have in other semantic approaches and programming. Identifiers are machine-readable, natural language is not processed or produces esoteric analysis results, rules are quite strict, no text markup. Take Semantic Web for [example](https://developer.marklogic.com/learn/semantics-exercises/hello-world). URI is machine-readable (though readable by humans to some degree). Triples (subject-object-predicate) try to imitate natural language but finally they are not human-friendly too. Heavyweight standards with a lot of rules. Alternatives are presumably human-readable [Notation3](https://en.wikipedia.org/wiki/Notation3) and [Turtle](https://www.w3.org/TR/turtle/). But here we see again "human-friendly" URI and names like dc:title (which may look human-readable in this example but another time it could be dc_fr12:ttl). [Microformats](https://en.wikipedia.org/wiki/Microformat) exhibit slightly differently approach used within HTML only, but, finally, it is just a sort of domain-specific language. DSL itself though considered as a promising direction but has certain [pros and cons](https://en.wikipedia.org/wiki/Domain-specific_language#Advantages_and_disadvantages), shortcomings of which can be explained by one phrase: necessity of knowing a new language. In all cases above, we see learning is the significant factor, which we cannot neglect.
 
 **The bottom line**:
-Bottom-up, gradual, and relaxed approach allows to start from scratch as in most of programming languages. It makes possible to work with natural language identifiers and a basic set of relations, which can be restricted with 2-3 ones. This minimizes usage of complex, costly, and not reliable yet (as for understanding) natural language processing. Differentiation of identifiers and basic relations is much easier task than one of noun-verbs-adjectives-adverbs or triples (subject-predicate-object) or unique definitions of classes/fields/methods. It can be done and it can be consumed without additional analysis by both humans and algorithms.
+Bottom-up, gradual, and relaxed approach allows to start from scratch as in most of programming languages. It makes possible to work with natural language identifiers and a basic set of relations, which can be restricted with 2-3 ones (in some cases, "is" and "has" are enough). This minimizes usage of complex, costly, and not reliable yet (as for understanding) natural language processing. Differentiation of identifiers and basic relations is much easier task than one of noun-verbs-adjectives-adverbs or triples (subject-predicate-object) or unique definitions of classes/fields/methods. It can be done and it can be consumed without additional analysis by both humans and algorithms.
 
 ### Mediating
 
@@ -50,13 +50,13 @@ What does getBallVolume(diameter) function do? Classic approach expresses output
 ```javascript
 	meaningful.register({
 		func: getBallVolume,
-		question: 'What {_ @func getBallVolume} {is} volume {of} ball',
+		question: 'What {_} {is} volume {of} ball',
 		input: [ { name: 'diameter' } ]
 	});
 	expect(meaningful.query('What {_} {is} volume {of} ball {has} diameter {has value} 2')).toEqual([ 4.1887902047863905 ]);
 ```
 
-What is done here? (1) getBallVolume function is registered to handle "What is volume of ball?" question with diameter parameter, (2) "What is volume of ball with diameter equals to 2?" question asked (which roughly equivalent to mentioned in code), (3) expected result checked. How this works? Internally questions (linked with function and incoming) compared and if they match each other (that is, their corresponding parts are similar), then result found: (a) "What {_ @func getBallVolume}" ("@func getBallVolume" just indicates an unknown is an output of this function) matches "What {_}", (b) "volume {of} ball" is the same in both questions, (c) in register() function "diameter" is not included into the question but is present as the input parameter, therefore it matches "diameter" in the second question, (d) "diameter {has value} 2" is applied as input and getBallVolume(2) called, (e) function result returned as question outcome.
+What is done here? (1) getBallVolume function is registered to handle "What is volume of ball?" question with diameter parameter, (2) "What is volume of ball with diameter equals to 2?" question asked (which roughly equivalent to mentioned in code), (3) expected result checked. How this works? Internally questions (linked with function and incoming) compared and if they match each other (that is, their corresponding parts are similar), then result found: (a) "What {_}" matches "What {_}" in both questions, (b) "volume {of} ball" is the same in both questions, (c) in register() function "diameter" is not included into the question but is present as the input parameter, therefore it matches "diameter" in the second question, (d) "diameter {has value} 2" is applied as input and getBallVolume(2) called, (e) function result returned as question outcome.
 
 Slightly more complex example (registering of getBallVolume function here [implied](https://github.com/meaningfuljs/meaningfuljs/blob/master/spec/meaning-querying-functions-spec.js)):
 
@@ -67,7 +67,7 @@ function getPlanet(planetName) {
 
 meaningful.register({
 	func: getPlanet,
-	question: 'What {_ @func planet.getDiameter} {is} diameter {of} planet',
+	question: 'What {_} {is} diameter {of} planet',
 	input: [
 		{ name: 'planet', func: function(planetName) { return planetName ? planetName.toLowerCase() : undefined; } } // planet name keys are in lower case
 	],
@@ -97,7 +97,7 @@ class BallLike {
 
 Such approach is simpler than any virtual assistant APIs: [Siri](https://developer.apple.com/sirikit/), [Google Assistant](https://developer.android.com/training/articles/assistant.html), or [Cortana](https://developer.microsoft.com/en-us/cortana) one. Only the fact there are several different types of API can discourage more than possible excitement from integration with naturally speaking assistants. The most close match from these APIs is [structured data markup](https://msdn.microsoft.com/en-us/cortana/structured-data-markup) but it is not human-friendly enough.
 
-What proposes Semantic Web is [not short](https://jena.apache.org/tutorials/rdf_api.html) and resembles XML processing. Semantic Web querying in the form of SPARQL is restricted, as is any kind of SQL-like language. Natural language questions are wider than selecting fields/properties and also concern space-time, cause-effect, and some other important aspects of reality and abstraction, which require special treatment.
+What proposes Semantic Web is [not short](https://jena.apache.org/tutorials/rdf_api.html) and resembles XML processing. Semantic Web querying in the form of SPARQL is restricted, as is any kind of SQL-like language. Natural language questions are wider than selecting fields/properties and also concern space-time, cause-effect, and some other important aspects of reality and abstraction, which require special treatment. Theoretically, we can use "What is location" instead of "Where", "What is date" instead of "When", and "What is cause" instead of "Why" but constant "What" questions do not sound well for natural language.
 
 This approach can be compared with what search engines do. They are able to retrieve [planet diameter](https://www.google.com/webhp?ie=UTF-8#q=jupiter%20diameter) but the result is not reusable. [planet volume](https://www.google.com/webhp?ie=UTF-8#q=jupiter%20volume) just does not work. We cannot retrieve any custom data. Whereas the proposal allows to answer to these and many other queries but also to make the very code searchable.
 
