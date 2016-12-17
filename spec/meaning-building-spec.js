@@ -353,7 +353,6 @@ describe('Meaningful.js', function() {
 		    	'@person': '',
 		    	$does: [{
 		    		'inhabit': {
-		    			//$props: [ 'Earth', 'thousand years' ]
 		    			$props: [{ 
 		    				'Earth' : {
 		    					'@space': ''
@@ -366,12 +365,6 @@ describe('Meaningful.js', function() {
 		    		}
 		    	}]
 		    },
-		    /*'Earth': {
-		    	'@space': ''
-		    },
-		    'thousand years': {
-		    	'@time': 'period'
-		    }*/
 		});
 	});
 
@@ -532,12 +525,6 @@ describe('Meaningful.js', function() {
 		    		}
 		    	}] 
 		    }
-		    /*'[_ @action]': {
-		    	$has: [ 'Earth' ]
-		    },
-		    'humans': {
-		    	$does: [ '[_ @action]' ] 
-		    }*/
 		});
 	});
 

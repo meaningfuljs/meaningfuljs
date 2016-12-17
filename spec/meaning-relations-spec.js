@@ -13,6 +13,19 @@ describe('Meaningful.js', function() {
 		expect(result).toEqual({});
 	});
 	
+	it('builds an expression with {} relation', function() {
+		var string = 'book {} star';
+		var result = meaningful.build(string);
+		expect(result).toEqual({
+			'book': {
+				$rel: [ 'star' ]
+			},
+			'star': {
+				$rel: [ 'book' ]
+			}
+		});
+	});
+
 	it('builds an expression with {rel} relation', function() {
 		var string = 'book {rel} star';
 		var result = meaningful.build(string);

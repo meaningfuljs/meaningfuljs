@@ -194,14 +194,13 @@ describe('Meaningful.js', function() {
 		expect(meaningful.query('Can{_ @able} I {/}run{/#1 does what #2 has property #3} {/}OS_like_OS{/#2} on {/}my computer{/#3}', { userRepo:  userRepo2 })).toEqual(true);
 	});
 
-	/* Temporarily commented
 	it('queries path', function() {
 		meaningful.build([
-			'OS_like_OS desktop {is similar} {/} OS_like_OS {has} desktop {/#1}',
+			'OS_like_OS desktop {is the same} {/} OS_like_OS {has} desktop {/#1}',
 			'OS_like_OS desktop {is property of} mouse right click {causes} context menu',
 			'context menu {has} Properties item {causes} Desktop properties dialog',
-			'Desktop color picker {is similar} {/} Desktop properties dialog {has} Appearance tab {has} color input {causes} color picker {/#2}',
-			'Desktop color {is similar} {/} OS_like_OS desktop {has property} color {/#3}',
+			'Desktop color picker {is the same} {/} Desktop properties dialog {has} Appearance tab {has} color input {causes} color picker {/#2}',
+			'Desktop color {is the same} {/} OS_like_OS desktop {has property} color {/#3}',
 			'Desktop color picker {causes} Desktop color',
 			'/etc/ui.cfg {has part} desktop section {has property} color attribute {causes} Desktop color'
 		]);
@@ -226,13 +225,13 @@ describe('Meaningful.js', function() {
 
 	it('queries path with alternatives and condition', function() {
 		meaningful.build([
-			'OS_like_OS desktop {is similar} {/} OS_like_OS {has} desktop {/#1}',
+			'OS_like_OS desktop {is the same} {/} OS_like_OS {has} desktop {/#1}',
 			'OS_like_OS desktop {is property of} mouse right click {causes} context menu',
 			'context menu {has} Properties item {causes} Desktop properties dialog',
 			'Properties key press {causes} context menu',
-			'Desktop properties dialog Appearance tab {is similar} {/} Desktop properties dialog {has} Appearance tab {/#1}',
-			'Desktop color picker {is similar} {/} Desktop properties dialog Appearance tab {has} color input {causes} color picker {/#2}',
-			'Desktop color {is similar} {/} OS_like_OS desktop {has property} color {/#3}',
+			'Desktop properties dialog Appearance tab {is the same} {/} Desktop properties dialog {has} Appearance tab {/#1}',
+			'Desktop color picker {is the same} {/} Desktop properties dialog Appearance tab {has} color input {causes} color picker {/#2}',
+			'Desktop color {is the same} {/} OS_like_OS desktop {has property} color {/#3}',
 			'Desktop color picker {causes} Desktop color',
 			'/etc/ui.cfg {has part} desktop section {has property} color attribute {causes} Desktop color',
 			'Desktop properties dialog Appearance tab {has condition} {/} /etc/ui.cfg {has part} desktop section {has property} color-enabled attribute {/#1}'
@@ -266,12 +265,12 @@ describe('Meaningful.js', function() {
 
 	it('queries complex path', function() {
 		meaningful.build([
-			'OS_like_OS desktop {is similar} {/} OS_like_OS {has} desktop {/#1}',
+			'OS_like_OS desktop {is the same} {/} OS_like_OS {has} desktop {/#1}',
 			'/etc/ui.cfg {has part} desktop section {has property} color attribute {causes} Desktop color',
 			'/etc/ui.cfg {has part} desktop section {has property} pattern attribute {causes} Desktop pattern',
-			'Desktop color {is similar} {/} OS_like_OS desktop {has property} color {/#3}',
-			'Desktop pattern {is similar} {/} OS_like_OS desktop {has property} pattern {/#4}',
-			'Desktop appearance {is similar} {/} Desktop color {and} Desktop pattern {and} Desktop picture {/#5}'
+			'Desktop color {is the same} {/} OS_like_OS desktop {has property} color {/#3}',
+			'Desktop pattern {is the same} {/} OS_like_OS desktop {has property} pattern {/#4}',
+			'Desktop appearance {is the same} {/} Desktop color {and} Desktop pattern {and} Desktop picture {/#5}'
 		]);
 		var result = meaningful.query('how {_ @cause} Desktop appearance');
 		expect(result).toEqual([
@@ -288,7 +287,6 @@ describe('Meaningful.js', function() {
 		]);
 		expect(meaningful.query('what{_} Desktop appearance')).toEqual([ 'Desktop color', 'Desktop pattern', 'Desktop picture' ]);
 	});
-	*/
 
 	it('queries similar meaning', function() {
 		meaningful.build([
@@ -299,5 +297,12 @@ describe('Meaningful.js', function() {
 		expect(meaningful.query('can{_ @able} falcon {does} fly')).toEqual(true);
 		expect(meaningful.query('can{_ @able} bird {does} move')).toEqual(true);
 	});
+
+	it('queries complexes', function() {
+		meaningful.build('A {is} {/} B {} C {/#1}');
+		expect(meaningful.query('What {_} {is} {/} B {} C {/#1}')).toEqual(['A']);
+		//meaningful.query('What {_} {is} A');
+	});
+
 
 });

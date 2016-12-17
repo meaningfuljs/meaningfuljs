@@ -65,4 +65,28 @@ describe('Meaningful.js', function() {
 		expect(meaningful.query('What {_} {is} volume {of} Jupiter')).toEqual([ 1530597322872155.8 ]);
 	});
 
+	it('creates a list and add elements to it', function() {
+		meaningful.register({
+			func: function(list) { eval(list + '= []'); },
+			question: 'create {} list',
+			input: [ { name: 'list' } ]
+		});
+
+		meaningful.register({
+			func: function(list, element) { eval(list + '.push(\'' + element + '\')'); },
+			question: 'add {} element {} to {} list',
+			input: [ { name: 'list' }, { name: 'element' } ]
+		});
+
+		meaningful.build([ 'planets {is instance of} list' ]);
+		meaningful.build([ 'Earth {is instance of} element' ]);
+		meaningful.build([ 'Jupiter {is instance of} element' ]);
+
+		meaningful.query('create {} planets', { execute: true });
+		expect(planets).toEqual([]);
+		meaningful.query('add {} Earth {} to {} planets', { execute: true });
+		meaningful.query('add {} Jupiter {} to {} planets', { execute: true });
+		expect(planets).toEqual([ 'Earth', 'Jupiter' ]);
+	});
+
 });
