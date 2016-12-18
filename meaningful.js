@@ -2030,10 +2030,18 @@ function query(request, opts) {
 					}, []);
 					return ik.func ? ik.func(result) : result;
 				});
-				var funcResult = funcRegistry[funcKey].func.apply(this, args);
-				var result = funcRegistry[funcKey].output ? funcRegistry[funcKey].output(funcResult) : funcResult;
-				debug(opts.log.query, 'queryFunc ->', result);
-				return result;
+				try {
+					var funcResult = funcRegistry[funcKey].func.apply(this, args);
+					var result = funcRegistry[funcKey].output ? funcRegistry[funcKey].output(funcResult) : funcResult;
+					debug(opts.log.query, 'queryFunc ->', result);
+					return result;
+				} catch (err) {
+					if (funcRegistry[funcKey].error) {
+						var err = funcRegistry[funcKey].error(err);
+						if (err && opts.error)
+							opts.error(err);
+					}
+				}
 			}
 			return r;
 		}) : result;

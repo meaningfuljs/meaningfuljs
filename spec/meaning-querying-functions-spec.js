@@ -89,4 +89,33 @@ describe('Meaningful.js', function() {
 		expect(planets).toEqual([ 'Earth', 'Jupiter' ]);
 	});
 
+	it('tries to add planet but fails and then use explanation', function() {
+		var addEnabled = true;
+		var planets = [];
+
+		meaningful.register({
+			func: function(list, element) { if (addEnabled) eval(list + '.push(\'' + element + '\')'); else throw "add disabled"; },
+			question: 'add {} element {} to {} list',
+			input: [ { name: 'list' }, { name: 'element' } ],
+			error: function(err) { if (err === 'add disabled') return 'enable {} add'; }
+		});
+
+		meaningful.register({
+			func: function(list, element) { addEnabled = true; },
+			question: 'enable {} add'
+		});
+
+		meaningful.build([ 'planets {is instance of} list' ]);
+		meaningful.build([ 'Earth {is instance of} element' ]);
+		meaningful.build([ 'Jupiter {is instance of} element' ]);
+
+		meaningful.query('add {} Earth {} to {} planets', { execute: true });
+		expect(planets).toEqual([ 'Earth' ]);
+		addEnabled = false;
+		meaningful.query('add {} Jupiter {} to {} planets', { execute: true, error: function(err) { meaningful.query(err, { execute: true }); } });
+		expect(planets).toEqual([ 'Earth' ]);
+		meaningful.query('add {} Jupiter {} to {} planets', { execute: true });
+		expect(planets).toEqual([ 'Earth', 'Jupiter' ]);
+	});
+
 });
